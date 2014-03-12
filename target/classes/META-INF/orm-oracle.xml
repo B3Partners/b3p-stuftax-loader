@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings
+    xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+    version="2.0">
+
+    <persistence-unit-metadata>
+        <persistence-unit-defaults>
+            <cascade-persist/>
+        </persistence-unit-defaults>
+    </persistence-unit-metadata>
+
+    <!-- For Oracle, manually assign sequences for generated id columns -->
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord00">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_00_id_seq"/>
+                <sequence-generator name="stuftax_00_id_seq" sequence-name="stuftax_00_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1020">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_20_id_seq"/>
+                <sequence-generator name="stuftax_20_id_seq" sequence-name="stuftax_20_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1021">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_21_id_seq"/>
+                <sequence-generator name="stuftax_21_id_seq" sequence-name="stuftax_21_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1022">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_22_id_seq"/>
+                <sequence-generator name="stuftax_22_id_seq" sequence-name="stuftax_22_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1023">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_23_id_seq"/>
+                <sequence-generator name="stuftax_23_id_seq" sequence-name="stuftax_23_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1024">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_24_id_seq"/>
+                <sequence-generator name="stuftax_24_id_seq" sequence-name="stuftax_24_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1025">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_25_id_seq"/>
+                <sequence-generator name="stuftax_25_id_seq" sequence-name="stuftax_25_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1030">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_30_id_seq"/>
+                <sequence-generator name="stuftax_30_id_seq" sequence-name="stuftax_30_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1031">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_31_id_seq"/>
+                <sequence-generator name="stuftax_31_id_seq" sequence-name="stuftax_31_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1040">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_40_id_seq"/>
+                <sequence-generator name="stuftax_40_id_seq" sequence-name="stuftax_40_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1041">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_41_id_seq"/>
+                <sequence-generator name="stuftax_41_id_seq" sequence-name="stuftax_41_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1051">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_51_id_seq"/>
+                <sequence-generator name="stuftax_51_id_seq" sequence-name="stuftax_51_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1052">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_52_id_seq"/>
+                <sequence-generator name="stuftax_52_id_seq" sequence-name="stuftax_52_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1053">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_53_id_seq"/>
+                <sequence-generator name="stuftax_53_id_seq" sequence-name="stuftax_53_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1054">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_54_id_seq"/>
+                <sequence-generator name="stuftax_54_id_seq" sequence-name="stuftax_54_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1060">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_60_id_seq"/>
+                <sequence-generator name="stuftax_60_id_seq" sequence-name="stuftax_60_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_80_id_seq"/>
+                <sequence-generator name="stuftax_80_id_seq" sequence-name="stuftax_80_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_91_id_seq"/>
+                <sequence-generator name="stuftax_91_id_seq" sequence-name="stuftax_91_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_92_id_seq"/>
+                <sequence-generator name="stuftax_92_id_seq" sequence-name="stuftax_92_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
+</entity-mappings>

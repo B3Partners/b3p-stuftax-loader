@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    
+    <persistence-unit name="stuftax-oracle" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <non-jta-data-source>java:comp/env/jdbc/b3p-stuftax</non-jta-data-source>
+        
+        <mapping-file>META-INF/orm-oracle.xml</mapping-file>
+        
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord00</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1020</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1021</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1022</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1023</class> 
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1024</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1025</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1030</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1031</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1035</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1040</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1041</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1051</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1052</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1053</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1054</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1060</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092</class>
+       
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+        
+            <property name="hibernate.jdbc.use_streams_for_binary" value="true"/>
+            <property name="hibernate.jdbc.use_get_generated_keys" value="false"/>
+      
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+        </properties>
+        
+    </persistence-unit>
+    
+    <persistence-unit name="stuftax-postgresql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <non-jta-data-source>java:comp/env/jdbc/b3p-stuftax</non-jta-data-source>
+        
+        <mapping-file>META-INF/orm-postgresql.xml</mapping-file>
+        
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord00</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1020</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1021</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1022</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1023</class> 
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1024</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1025</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1030</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1031</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1035</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1040</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1041</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1051</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1052</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1053</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1054</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1060</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092</class>
+        
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            
+            <property name="hibernate.jdbc.use_streams_for_binary" value="true"/>            
+            <property name="hibernate.jdbc.use_get_generated_keys" value="false"/>
+            
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+        </properties>
+    
+    </persistence-unit>
+    
+</persistence>
