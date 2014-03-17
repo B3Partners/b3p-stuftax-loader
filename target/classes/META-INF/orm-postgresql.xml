@@ -84,6 +84,14 @@
         </attributes>
     </entity>
     
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1035">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </entity>
+    
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1040">
         <attributes>
             <id name="id">
