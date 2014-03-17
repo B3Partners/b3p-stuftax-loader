@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_voorloop")
+@Table(name = "stax_voorloop")
 public class StufTAXRecord00 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -42,7 +42,7 @@ public class StufTAXRecord00 extends StufTAXRecord implements Serializable {
     private Integer bijgewerkTotMetMaand;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    @Column(name="datum_vorige_aanl_bestand")
+    @Column(name="datum_vorig_aanl_bestand")
     private Date datumVorigeAanleveringBestand;
     
     @Column(name="aard_levering_bestand")

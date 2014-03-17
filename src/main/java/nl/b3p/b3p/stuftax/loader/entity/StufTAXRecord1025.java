@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_controle_objecten")
+@Table(name = "stax_controle_objecten")
 public class StufTAXRecord1025 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -38,13 +38,13 @@ public class StufTAXRecord1025 extends StufTAXRecord implements Serializable {
     @Column(name="reden_controle")
     private Integer redenControle;
     
-    @Column(name="gecontroleerde_onderdelen")
+    @Column(name="gecontroleerd_onderdelen")
     private Integer gecontroleerdeOnderdelen;
     
-    @Column(name="gecontroleerde_object_kenm")
+    @Column(name="gecontroleerd_object_kenm")
     private Integer gecontroleerdeObjectKenmerken;
     
-    @Column(name="identificatie_uitvoerder")
+    @Column(name="identific_uitvoerder")
     private String identificatieUitvoerder;
     
     @Column(name="methodiek_controle")

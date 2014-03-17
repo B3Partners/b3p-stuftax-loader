@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_status_beschikking")
+@Table(name = "stax_status_beschikking")
 public class StufTAXRecord1080 extends StufTAXRecord implements Serializable {
     
     @Id

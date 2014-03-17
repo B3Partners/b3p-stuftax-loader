@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_identif_marktinfo")
+@Table(name = "stax_identif_marktinfo")
 public class StufTAXRecord1023 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -22,10 +22,10 @@ public class StufTAXRecord1023 extends StufTAXRecord implements Serializable {
     @Column(name="line_number")
     private Integer lineNumber;
     
-    @Column(name="aand_groep_vergelijkbaar_object")
+    @Column(name="aand_groep_vergelijkb_obj")
     private String groepAanduidingvergelijkbareObjecten;
     
-    @Column(name="indicatie_vermelding_taxatieverslag")
+    @Column(name="indic_vermelding_taxatieversl")
     private String indicatieVermeldingTaxatieverslag;
     
     @Column(name="woz_objectnummer_ref")

@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_kadaster_object")
+@Table(name = "stax_kadaster_object")
 public class StufTAXRecord1051 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -31,16 +31,16 @@ public class StufTAXRecord1051 extends StufTAXRecord implements Serializable {
     @Column(name="perceelnummer")
     private Integer perceelnummer;
     
-    @Column(name="perceel_index_letter")
+    @Column(name="perceel_indexletter")
     private String perceelIndexLetter;
     
-    @Column(name="perceel_index_nummer")
+    @Column(name="perceel_indexnummer")
     private Integer perceelIndexNummer;
     
     @Column(name="kadaster_oppervlakte")
     private Integer kadastraleOppervlakte;
     
-    @Column(name="bebouwingscode")
+    @Column(name="bebouwingcode")
     private Integer bebouwingsCode;
     
     @Column(name="kaartblad_nummer")
@@ -95,8 +95,11 @@ public class StufTAXRecord1051 extends StufTAXRecord implements Serializable {
         this.kaartbladVolgnummer = getNumber(32, 1, line);
         this.ruitLetter = getString(33, 1, line);
         this.ruitNummer = getNumber(34, 2, line);
+        
+        /* TODO decimals ? */
         this.xCoord = getNumber(36, 6, line);
         this.yCoord = getNumber(42, 6, line);
+        
         this.registerCode = getString(48, 3, line);
         this.stuknummer = getString(51, 5, line);
         this.mutatiecode = getString(56, 1, line);

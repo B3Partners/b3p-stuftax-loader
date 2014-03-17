@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_onderbouwing_onderdeel")
+@Table(name = "stax_onderbouw_onderd")
 public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -28,22 +28,22 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     @Column(name="nummer_onderdeel")
     private Integer nummerOnderdeel;
     
-    @Column(name="waarderingsvoorschrift")
+    @Column(name="waarderingvoorschrift")
     private String gehanteerdWaarderingsvoorschrift;
     
     @Column(name="code_omzetbelasting")
     private String codeOmzetbelasting;
     
-    @Column(name="aand_groep_vergelijkbaar_object")
+    @Column(name="aand_groep_vergelijkb_object")
     private String groepAanduidingvergelijkbareObjecten;
     
-    @Column(name="bepaalde_waarde_onderdeel")
+    @Column(name="bepaald_waarde_onderdeel")
     private Integer bepaaldeWaardeOnderdeel;   
     
     @Column(name="code_vrijstelling_ozb")
     private String codeVrijstellingOZB;
     
-    @Column(name="code_onderdeel_woz")
+    @Column(name="code_onderdeel_wozobject")
     private String codeOnderdeelWOZObject;
     
     @Column(name="bouwjaar")
@@ -67,7 +67,7 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     @Column(name="kwaliteit_luxe")
     private String kwaliteitLuxe;
     
-    @Column(name="onderhoudstoestand")
+    @Column(name="onderhoudtoestand")
     private String onderhoudsToestand;
     
     @Column(name="uitstraling")
@@ -103,7 +103,7 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     @Column(name="front_breedte")
     private Integer frontBreedte;
     
-    @Column(name="aantal_stuks_eenheden")
+    @Column(name="aantal_stuk_eenheden")
     private Integer aantalStuksEenheden;
     
     @Column(name="waarde_per_stuk_eenheid")
@@ -121,7 +121,7 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     @Column(name="kosten_vervanging_m3_stuk")
     private Integer vervangingskostenPerM3StukEenheid;
     
-    @Column(name="ongecorrigeerde_vervangingswaarde")
+    @Column(name="ongecorrigeerd_vervangwaarde")
     private Integer ongecorrigeerdeVervangingswaarde;
     
     @Column(name="verwachte_levensduur")
@@ -142,7 +142,7 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     @Column(name="invloed_doelmatigheid")
     private Integer invloedDoelmatigheid;
     
-    @Column(name="invloed_excess_gebruikskosten")
+    @Column(name="invloed_excess_gebruikkost")
     private Integer invloedExcessieveGebruikskosten;
     
     @Column(name="factor_func_veroudering")

@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_onderbouwing")
+@Table(name = "stax_onderbouwing")
 public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -37,13 +37,13 @@ public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
     @Column(name="reden_waardeverschil_vast_onr")
     private String redenWaardeverschilVastOnroerend;
     
-    @Column(name="getaxeerde_waarde")
+    @Column(name="getaxeerd_waarde")
     private Integer getaxeerdeWaarde;
     
-    @Column(name="heffings_maatstaf_onr_gebr")
+    @Column(name="heffing_maatstaf_onr_gebr")
     private Integer heffingsMaatstafOnroerendZaakbeslastingGebr;
     
-    @Column(name="waarderingsvoorschrift")
+    @Column(name="waarderingvoorschrift")
     private String gehanteerdWaarderingsvoorschrift;
     
     @Column(name="aand_monument")
@@ -52,7 +52,7 @@ public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
     @Column(name="code_omzetbelasting")
     private String codeOmzetbelasting;
     
-    @Column(name="aand_groep_vergelijkbaar_object")
+    @Column(name="aand_groep_vergelijkb_object")
     private String groepAanduidingvergelijkbareObjecten;
     
     @Column(name="type_aanduiding")
@@ -73,7 +73,7 @@ public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
     @Column(name="foto_indexnummer")
     private Integer fotoIndexNummer;
     
-    @Column(name="financieringsvorm")
+    @Column(name="financieringvorm")
     private String financieringsVorm;
     
     @Column(name="aantekening")
@@ -107,7 +107,7 @@ public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
     private Date eindDatum;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    @Column(name="toestands_peildatum")
+    @Column(name="toestand_peildatum")
     private Date toestandsPeildatum;  
 
     public StufTAXRecord1021() {

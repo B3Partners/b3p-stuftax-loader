@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_woz_object")
+@Table(name = "stax_wozobject")
 public class StufTAXRecord1020 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -61,17 +61,17 @@ public class StufTAXRecord1020 extends StufTAXRecord implements Serializable {
     @Column(name="meegetaxeerde_opp_geb")
     private Integer meegetaxeerdeOppervlakteGebouwd;
     
-    @Column(name="aandeel_getaxeerde_waarde_geb")
+    @Column(name="aandeel_getaxeerd_waarde_geb")
     private Integer aandeelGetaxeerdeWaardeGebouwd;
     
-    @Column(name="vastgestelde_waarde")
+    @Column(name="vastgesteld_waarde")
     private Integer vastgesteldeWaarde;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name="waarde_peildatum")
     private Date waardePeilDatum;
     
-    @Column(name="bijz_waarderings_code")
+    @Column(name="bijz_waardering_code")
     private Integer bijzondereWaarderingsCode;
     
     @Column(name="mutatiecode")

@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_subject_31")
+@Table(name = "stax_subject_31")
 public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -83,7 +83,7 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
     private Date geboorteDatumNatPersoon;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    @Column(name="overlijdens_datum_nat_persoon")
+    @Column(name="overlijden_datum_nat_persoon")
     private Date overlijdensDatumNatPersoon;
     
     @Column(name="status_subject")

@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_marktinfo")
+@Table(name = "stax_marktinfo")
 public class StufTAXRecord1052 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -41,10 +41,10 @@ public class StufTAXRecord1052 extends StufTAXRecord implements Serializable {
     @Column(name="datum_transactie")
     private Date datumTransactie;
     
-    @Column(name="transactieprijs")
+    @Column(name="txprijs")
     private Integer transactieprijs;
     
-    @Column(name="transprijs_idx_waarde_peildatum")
+    @Column(name="txprijs_idx_waarde_peildatum")
     private Integer transactieprijsIndexWaardePeildatum;
     
     @Column(name="looptijd_huurcontract")
@@ -53,7 +53,7 @@ public class StufTAXRecord1052 extends StufTAXRecord implements Serializable {
     @Column(name="indexatie_huurpijs")
     private String indexatiehuurpijs;
     
-    @Column(name="indicatie_omzetbel_huurprijs")
+    @Column(name="indic_omzetbel_huurprijs")
     private String indicatieOmzetbelastingHuurprijs;
     
     @Column(name="servicekosten")
@@ -62,13 +62,13 @@ public class StufTAXRecord1052 extends StufTAXRecord implements Serializable {
     @Column(name="totaal_bruto_vloer_opp")
     private Integer totaalBrutoVloerOppervlakte;
     
-    @Column(name="verhuurbaar_vloer_opp_primair")
+    @Column(name="verhuurb_vloer_opp_primair")
     private Integer verhuurbareVloerOppPrimaireRuimte;
     
     @Column(name="huurprijs_m2_primair")
     private Integer huurprijsM2PrimaireRuimte;
     
-    @Column(name="geschat_huurprijs_m2_idx_waardepeildatum")
+    @Column(name="geschat_huurprijs_m2_peildatum")
     private Integer geschatteHuurprijsM2IndexWaardepeildatum;
     
     @Column(name="grondkosten")
@@ -92,10 +92,10 @@ public class StufTAXRecord1052 extends StufTAXRecord implements Serializable {
     @Column(name="kosten_overig")
     private Integer kostenOverig;
     
-    @Column(name="totaal_brutoinhoud_object")
+    @Column(name="totaal_brutoinhoud_obj")
     private Integer totaalBrutoInhoudObject;
     
-    @Column(name="indic_omzetbelasting_grondprijs")
+    @Column(name="indic_omzetbel_grondprijs")
     private String indicatieOmzetbelastingGrondprijs;
     
     @Column(name="totaal_opp_grond")
@@ -123,6 +123,38 @@ public class StufTAXRecord1052 extends StufTAXRecord implements Serializable {
     
     public StufTAXRecord1052(LineNumberReader lineNumberReader, String line) {   
         this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.volgnummerMarktgegeven = getNumber(3, 8, line);
+        this.omschrijvingTransactie = getString(11, 40, line);
+        this.aardMarktinfo = getString(51, 1, line);
+        this.soortTransactie = getString(52, 1, line);
+        this.aanduidingBruikbaarheidMarktgegeven = getString(53, 2, line);
+        this.datumTransactie = getDate(55, 8, line);
+        this.transactieprijs = getNumber(63, 10, line);
+        this.transactieprijsIndexWaardePeildatum = getNumber(73, 10, line);
+        this.looptijdHuurcontract = getNumber(83, 3, line);
+        this.indexatiehuurpijs = getString(86, 1, line);
+        this.indicatieOmzetbelastingHuurprijs = getString(87, 1, line);
+        this.servicekosten = getNumber(88, 10, line);
+        this.totaalBrutoVloerOppervlakte = getNumber(98, 6, line);
+        this.verhuurbareVloerOppPrimaireRuimte = getNumber(104, 6, line);
+        this.huurprijsM2PrimaireRuimte = getNumber(110, 6, line);
+        this.geschatteHuurprijsM2IndexWaardepeildatum = getNumber(116, 6, line);
+        this.grondkosten = getNumber(122, 9, line);
+        this.kostenRuwbouw = getNumber(131, 9, line);
+        this.kostenAfbouwInrichting = getNumber(140, 9, line);
+        this.kostenInstallaties = getNumber(149, 9, line);
+        this.kostenWerktuigen = getNumber(158, 9, line);
+        this.kostenInfrastructuur = getNumber(167, 9, line);
+        this.kostenOverig = getNumber(176, 9, line);
+        this.totaalBrutoInhoudObject = getNumber(185, 8, line);
+        this.indicatieOmzetbelastingGrondprijs = getString(193, 1, line);
+        this.totaalOppervlakteGrond = getNumber(194, 8, line);
+        this.gronduitgiftePrijsPerM2 = getNumber(202, 6, line);
+        this.mutatiecode = getString(208, 1, line);
+        this.ingangsDatum = getDate(209, 8, line);
+        this.eindDatum = getDate(217, 8, line);
+        this.aanduidingValutasoort = getString(225, 3, line);
     }
 
     public Long getId() {

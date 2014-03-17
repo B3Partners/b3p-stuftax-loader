@@ -10,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author boy
  */
 @Entity
-@Table(name = "stuftax_subject_30")
+@Table(name = "stax_subject_30")
 public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
     
     @Id
@@ -33,16 +33,16 @@ public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
     @Column(name="voorvoegsels")
     private String voorvoegsels;
     
-    @Column(name="geslacht_bedrijf_naam")
+    @Column(name="geslacht_bedrijfnaam")
     private String geslachtsBedrijfsNaam;
     
-    @Column(name="partner_bedrijf_naam_verkort")
+    @Column(name="partner_bedrijfnaam_verkort")
     private String partnerBedrijfsNaamVerkort;
     
     @Column(name="voorvoegsel_partner")
     private String voorvoegselsPartnerNaam;
     
-    @Column(name="aanvulling_sofi_nummer")
+    @Column(name="aanvulling_sofinummer")
     private Integer aanvullingSofiNummer;
     
     @Column(name="aand_naamgebruik")
