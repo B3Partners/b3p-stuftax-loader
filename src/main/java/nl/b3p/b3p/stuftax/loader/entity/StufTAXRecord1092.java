@@ -44,17 +44,6 @@ public class StufTAXRecord1092 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1092() {
     }
-    
-    public StufTAXRecord1092(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.code = getString(3, 4, line);
-        this.omschrijving = getString(7, 50, line);
-        this.verkorteOmschrijving = getString(57, 12, line);
-        this.mutatiecode = getString(69, 1, line);
-        this.ingangsDatum = getDate(70, 8, line);
-        this.eindDatum = getDate(78, 8, line);
-    }
 
     public Long getId() {
         return id;
@@ -118,5 +107,17 @@ public class StufTAXRecord1092 extends StufTAXRecord implements Serializable {
 
     public void setEindDatum(Date eindDatum) {
         this.eindDatum = eindDatum;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.code = getString(3, 4, line);
+        this.omschrijving = getString(7, 50, line);
+        this.verkorteOmschrijving = getString(57, 12, line);
+        this.mutatiecode = getString(69, 1, line);
+        this.ingangsDatum = getDate(70, 8, line);
+        this.eindDatum = getDate(78, 8, line);
     }
 }

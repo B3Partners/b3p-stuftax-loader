@@ -59,22 +59,6 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1060() {
     }
-    
-    public StufTAXRecord1060(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.aNummerNatuurlijkpersoon = getLong(15, 10, line);
-        this.sofinummer = getNumber(25, 9, line);
-        this.aanduidingEigenaarGebruiker = getString(34, 1, line);
-        this.zakelijkRechtCode = getString(35, 6, line);
-        this.csCode = getString(41, 2, line);
-        this.mutatiecode = getString(43, 1, line);
-        this.ingangsDatum = getDate(44, 8, line);
-        this.eindDatum = getDate(52, 8, line);
-        this.aanvullingSofinummer = getNumber(60, 10, line);
-        this.subjectNummerAKR = getLong(70, 10, line);
-    }
 
     public Long getId() {
         return id;
@@ -178,5 +162,22 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
 
     public void setSubjectNummerAKR(Long subjectNummerAKR) {
         this.subjectNummerAKR = subjectNummerAKR;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.aNummerNatuurlijkpersoon = getLong(15, 10, line);
+        this.sofinummer = getNumber(25, 9, line);
+        this.aanduidingEigenaarGebruiker = getString(34, 1, line);
+        this.zakelijkRechtCode = getString(35, 6, line);
+        this.csCode = getString(41, 2, line);
+        this.mutatiecode = getString(43, 1, line);
+        this.ingangsDatum = getDate(44, 8, line);
+        this.eindDatum = getDate(52, 8, line);
+        this.aanvullingSofinummer = getNumber(60, 10, line);
+        this.subjectNummerAKR = getLong(70, 10, line);
     }
 }

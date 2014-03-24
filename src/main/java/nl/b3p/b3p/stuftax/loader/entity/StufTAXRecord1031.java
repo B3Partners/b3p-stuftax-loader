@@ -94,33 +94,6 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1031() {
     }
-    
-    public StufTAXRecord1031(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.sofinummer = getNumber(3, 9, line);
-        this.straatNaam = getString(12, 24, line);
-        this.huisNummer = getNumber(36, 5, line);
-        this.huisLetter = getString(41, 1, line);
-        this.huisNummerToevoeging = getString(42, 4, line);
-        this.aanduidingBijHuisnummer = getString(46, 2, line);
-        this.postcode = getString(48, 6, line);
-        this.woonplaatsNaam = getString(54, 40, line);
-        this.landNaam = getString(94, 40, line);
-        this.mutatieCode = getString(134, 1, line);
-        this.ingangsDatum = getDate(135, 8, line);
-        this.eindDatum = getDate(143, 8, line);
-        this.lokatieOmschrijving = getString(151, 40, line);
-        this.aanvullingSofinummer = getNumber(191, 10, line);
-        this.handelsRegisterNummer = getNumber(201, 8, line);
-        this.subjectNummerAKR = getNumber(213, 10, line);
-        this.adelijkeTitelPredikaat = getString(223, 2, line);
-        this.geslachtsAanduiding = getString(226, 1, line);
-        this.geboorteDatumNatPersoon = getDate(227, 8, line);
-        this.overlijdensDatumNatPersoon = getDate(235, 8, line);
-        this.statusSubject = getString(243, 1, line);
-        this.functieAdres = getString(249, 1, line);
-    }
 
     public Long getId() {
         return id;
@@ -312,5 +285,33 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
 
     public void setFunctieAdres(String functieAdres) {
         this.functieAdres = functieAdres;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.sofinummer = getNumber(3, 9, line);
+        this.straatNaam = getString(12, 24, line);
+        this.huisNummer = getNumber(36, 5, line);
+        this.huisLetter = getString(41, 1, line);
+        this.huisNummerToevoeging = getString(42, 4, line);
+        this.aanduidingBijHuisnummer = getString(46, 2, line);
+        this.postcode = getString(48, 6, line);
+        this.woonplaatsNaam = getString(54, 40, line);
+        this.landNaam = getString(94, 40, line);
+        this.mutatieCode = getString(134, 1, line);
+        this.ingangsDatum = getDate(135, 8, line);
+        this.eindDatum = getDate(143, 8, line);
+        this.lokatieOmschrijving = getString(151, 40, line);
+        this.aanvullingSofinummer = getNumber(191, 10, line);
+        this.handelsRegisterNummer = getNumber(201, 8, line);
+        this.subjectNummerAKR = getNumber(213, 10, line);
+        this.adelijkeTitelPredikaat = getString(223, 2, line);
+        this.geslachtsAanduiding = getString(226, 1, line);
+        this.geboorteDatumNatPersoon = getDate(227, 8, line);
+        this.overlijdensDatumNatPersoon = getDate(235, 8, line);
+        this.statusSubject = getString(243, 1, line);
+        this.functieAdres = getString(249, 1, line);
     }
 }

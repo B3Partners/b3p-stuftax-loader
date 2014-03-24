@@ -53,20 +53,6 @@ public class StufTAXRecord1054 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1054() {
     }
-    
-    public StufTAXRecord1054(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.volgnummerMarktgegeven = getNumber(3, 8, line);
-        this.kadasterGemeenteCode = getString(11, 5, line);
-        this.sectie = getString(16, 2, line);
-        this.perceelnummer = getNumber(18, 5, line);
-        this.perceelIndexLetter = getString(23, 1, line);
-        this.perceelIndexNummer = getNumber(24, 4, line);
-        this.mutatiecode = getString(28, 1, line);
-        this.ingangsDatum = getDate(29, 8, line);
-        this.eindDatum = getDate(37, 8, line);
-    }
 
     public Long getId() {
         return id;
@@ -154,5 +140,20 @@ public class StufTAXRecord1054 extends StufTAXRecord implements Serializable {
 
     public void setEindDatum(Date eindDatum) {
         this.eindDatum = eindDatum;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.volgnummerMarktgegeven = getNumber(3, 8, line);
+        this.kadasterGemeenteCode = getString(11, 5, line);
+        this.sectie = getString(16, 2, line);
+        this.perceelnummer = getNumber(18, 5, line);
+        this.perceelIndexLetter = getString(23, 1, line);
+        this.perceelIndexNummer = getNumber(24, 4, line);
+        this.mutatiecode = getString(28, 1, line);
+        this.ingangsDatum = getDate(29, 8, line);
+        this.eindDatum = getDate(37, 8, line);
     }
 }

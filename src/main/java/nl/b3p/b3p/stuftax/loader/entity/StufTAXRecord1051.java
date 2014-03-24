@@ -80,32 +80,6 @@ public class StufTAXRecord1051 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1051() {
     }
-    
-    public StufTAXRecord1051(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.kadasterGemeenteCode = getString(3, 5, line);
-        this.sectie = getString(8, 2, line);
-        this.perceelnummer = getNumber(10, 5, line);
-        this.perceelIndexLetter = getString(15, 1, line);
-        this.perceelIndexNummer = getNumber(16, 4, line);
-        this.kadastraleOppervlakte = getNumber(20, 8, line);
-        this.bebouwingsCode = getNumber(28, 1, line);
-        this.kaartbladNummer = getNumber(29, 3, line);
-        this.kaartbladVolgnummer = getNumber(32, 1, line);
-        this.ruitLetter = getString(33, 1, line);
-        this.ruitNummer = getNumber(34, 2, line);
-        
-        /* TODO decimals ? */
-        this.xCoord = getNumber(36, 6, line);
-        this.yCoord = getNumber(42, 6, line);
-        
-        this.registerCode = getString(48, 3, line);
-        this.stuknummer = getString(51, 5, line);
-        this.mutatiecode = getString(56, 1, line);
-        this.ingangsDatum = getDate(57, 8, line);
-        this.eindDatum = getDate(65, 8, line);
-    }
 
     public Long getId() {
         return id;
@@ -265,5 +239,32 @@ public class StufTAXRecord1051 extends StufTAXRecord implements Serializable {
 
     public void setEindDatum(Date eindDatum) {
         this.eindDatum = eindDatum;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.kadasterGemeenteCode = getString(3, 5, line);
+        this.sectie = getString(8, 2, line);
+        this.perceelnummer = getNumber(10, 5, line);
+        this.perceelIndexLetter = getString(15, 1, line);
+        this.perceelIndexNummer = getNumber(16, 4, line);
+        this.kadastraleOppervlakte = getNumber(20, 8, line);
+        this.bebouwingsCode = getNumber(28, 1, line);
+        this.kaartbladNummer = getNumber(29, 3, line);
+        this.kaartbladVolgnummer = getNumber(32, 1, line);
+        this.ruitLetter = getString(33, 1, line);
+        this.ruitNummer = getNumber(34, 2, line);
+        
+        /* TODO decimals ? */
+        this.xCoord = getNumber(36, 6, line);
+        this.yCoord = getNumber(42, 6, line);
+        
+        this.registerCode = getString(48, 3, line);
+        this.stuknummer = getString(51, 5, line);
+        this.mutatiecode = getString(56, 1, line);
+        this.ingangsDatum = getDate(57, 8, line);
+        this.eindDatum = getDate(65, 8, line);
     }
 }

@@ -1,6 +1,8 @@
 package nl.b3p.b3p.stuftax.loader.entity;
 
 import java.io.LineNumberReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,12 +14,16 @@ import java.util.Date;
  */
 public abstract class StufTAXRecord {
 
-    protected String line;
-    protected LineNumberReader lineNumberReader;
+    private String line;
+    private LineNumberReader lineNumberReader;
     
-    protected String identifCode;
-    protected String deelbestandCode; // only used in stuur records    
+    private String identifCode;
+    
+    // only used in stuur records
+    private String deelbestandCode; 
 
+    public abstract void fillValues(LineNumberReader lineNumberReader, String line);
+    
     public String getString(int startPos, int length, String line) {
         String s = null;
         if (line != null) {
@@ -35,7 +41,7 @@ public abstract class StufTAXRecord {
         Integer nr = null;
         if (line != null) {
             String val = line.substring(startPos - 1, (startPos - 1) + length);
-            nr = new Integer(val);
+            nr = Integer.valueOf(val);
         }
 
         return nr;
@@ -60,10 +66,30 @@ public abstract class StufTAXRecord {
             try {
                 date = formatter.parse(val);
             } catch (ParseException ex) {
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                
+                pw.print(ex);
             }
         }
 
         return date;
+    }
+
+    public String getLine() {
+        return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
+    }
+
+    public LineNumberReader getLineNumberReader() {
+        return lineNumberReader;
+    }
+
+    public void setLineNumberReader(LineNumberReader lineNumberReader) {
+        this.lineNumberReader = lineNumberReader;
     }
 
     public String getIdentifCode() {

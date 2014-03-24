@@ -69,25 +69,6 @@ public class StufTAXRecord1053 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1053() {
     }
-    
-    public StufTAXRecord1053(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.volgnummerMarktgegeven = getNumber(15, 8, line);
-        this.mutatiecode = getString(23, 1, line);
-        this.ingangsDatum = getDate(24, 8, line);
-        this.eindDatum = getDate(32, 8, line);
-        this.fotoIndexNummer = getNumber(40, 8, line);
-        this.vastgesteldeWaardeOpDatumMarktgegeven = getLong(48, 11, line);
-        this.koopDatum = getDate(59, 8, line);
-        this.verwachteWijzigingVastgesteldeWaarde = getNumber(67, 4, line);
-        this.redenAfwijkingMarktgegevenWozGebaseerdVerwachting = getNumber(71, 2, line);
-        this.relevantieRedenAfwijking = getNumber(73, 1, line);
-        this.kwantificeringVerschilVerkoopprijsTovMarktwaarde = getNumber(74, 10, line);
-        this.kwantificeringFoutOudeVastgesteldeWaarde = getNumber(84, 10, line);
-        this.kwantificeringGevolgWijzigingWOZObject = getNumber(94, 10, line);
-    }
 
     public Long getId() {
         return id;
@@ -215,5 +196,25 @@ public class StufTAXRecord1053 extends StufTAXRecord implements Serializable {
 
     public void setKwantificeringGevolgWijzigingWOZObject(Integer kwantificeringGevolgWijzigingWOZObject) {
         this.kwantificeringGevolgWijzigingWOZObject = kwantificeringGevolgWijzigingWOZObject;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.volgnummerMarktgegeven = getNumber(15, 8, line);
+        this.mutatiecode = getString(23, 1, line);
+        this.ingangsDatum = getDate(24, 8, line);
+        this.eindDatum = getDate(32, 8, line);
+        this.fotoIndexNummer = getNumber(40, 8, line);
+        this.vastgesteldeWaardeOpDatumMarktgegeven = getLong(48, 11, line);
+        this.koopDatum = getDate(59, 8, line);
+        this.verwachteWijzigingVastgesteldeWaarde = getNumber(67, 4, line);
+        this.redenAfwijkingMarktgegevenWozGebaseerdVerwachting = getNumber(71, 2, line);
+        this.relevantieRedenAfwijking = getNumber(73, 1, line);
+        this.kwantificeringVerschilVerkoopprijsTovMarktwaarde = getNumber(74, 10, line);
+        this.kwantificeringFoutOudeVastgesteldeWaarde = getNumber(84, 10, line);
+        this.kwantificeringGevolgWijzigingWOZObject = getNumber(94, 10, line);
     }
 }

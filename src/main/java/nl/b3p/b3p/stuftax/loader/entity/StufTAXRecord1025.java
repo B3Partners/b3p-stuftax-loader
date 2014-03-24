@@ -63,23 +63,6 @@ public class StufTAXRecord1025 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1025() {
     }
-    
-    public StufTAXRecord1025(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.aantekening = getString(15, 50, line);
-        this.taxateur = getString(65, 4, line);
-        this.datumControle = getDate(69, 8, line);
-        this.redenControle = getNumber(77, 2, line);
-        this.gecontroleerdeOnderdelen = getNumber(79, 1, line);
-        this.gecontroleerdeObjectKenmerken = getNumber(80, 1, line);
-        this.identificatieUitvoerder = getString(81, 1, line);
-        this.methodiekControle = getNumber(82, 2, line);
-        this.mutatiecode = getString(84, 1, line);
-        this.ingangsDatum = getDate(85, 8, line);
-        this.eindDatum = getDate(93, 8, line);
-    }
 
     public Long getId() {
         return id;
@@ -191,5 +174,23 @@ public class StufTAXRecord1025 extends StufTAXRecord implements Serializable {
 
     public void setEindDatum(Date eindDatum) {
         this.eindDatum = eindDatum;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.aantekening = getString(15, 50, line);
+        this.taxateur = getString(65, 4, line);
+        this.datumControle = getDate(69, 8, line);
+        this.redenControle = getNumber(77, 2, line);
+        this.gecontroleerdeOnderdelen = getNumber(79, 1, line);
+        this.gecontroleerdeObjectKenmerken = getNumber(80, 1, line);
+        this.identificatieUitvoerder = getString(81, 1, line);
+        this.methodiekControle = getNumber(82, 2, line);
+        this.mutatiecode = getString(84, 1, line);
+        this.ingangsDatum = getDate(85, 8, line);
+        this.eindDatum = getDate(93, 8, line);
     }
 }

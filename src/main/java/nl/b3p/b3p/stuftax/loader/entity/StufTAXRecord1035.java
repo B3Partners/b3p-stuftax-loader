@@ -64,24 +64,6 @@ public class StufTAXRecord1035 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1035() {
     }
-    
-    public StufTAXRecord1035(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.woonplaatsNaam = getString(15, 40, line);        
-        this.straatNaam = getString(55, 24, line); 
-        this.huisNummer = getNumber(79, 5, line); 
-        this.huisLetter = getString(84, 1, line);        
-        this.huisNummerToevoeging = getString(85, 4, line);
-        this.aanduidingBijHuisnummer = getString(89, 2, line);
-        this.postcode = getString(91, 6, line);
-        this.lokatieOmschrijving = getString(97, 40, line);
-        this.mutatiecode = getString(137, 1, line);
-        this.ingangsDatum = getDate(138, 8, line);
-        this.eindDatum = getDate(146, 8, line);
-        this.straatcode = getNumber(154, 5, line); 
-    }
 
     public Long getId() {
         return id;
@@ -201,5 +183,24 @@ public class StufTAXRecord1035 extends StufTAXRecord implements Serializable {
 
     public void setStraatcode(Integer straatcode) {
         this.straatcode = straatcode;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.woonplaatsNaam = getString(15, 40, line);        
+        this.straatNaam = getString(55, 24, line); 
+        this.huisNummer = getNumber(79, 5, line); 
+        this.huisLetter = getString(84, 1, line);        
+        this.huisNummerToevoeging = getString(85, 4, line);
+        this.aanduidingBijHuisnummer = getString(89, 2, line);
+        this.postcode = getString(91, 6, line);
+        this.lokatieOmschrijving = getString(97, 40, line);
+        this.mutatiecode = getString(137, 1, line);
+        this.ingangsDatum = getDate(138, 8, line);
+        this.eindDatum = getDate(146, 8, line);
+        this.straatcode = getNumber(154, 5, line); 
     }
 }

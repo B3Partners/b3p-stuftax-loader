@@ -78,28 +78,6 @@ public class StufTAXRecord1024 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1024() {
     }
-    
-    public StufTAXRecord1024(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.volgnummerTussentijdseTaxatie = getNumber(15, 3, line);
-        this.waardeVeranderingMutatie = getNumber(18, 10, line);
-        this.waardePeildatum = getDate(28, 8, line);
-        this.redenTussentijdseTaxatie = getString(36, 1, line);
-        this.resultaatTussentijdseTaxatie = getString(37, 2, line);
-        this.nummerBezwaarschrift = getString(39, 10, line);
-        this.indienerBezwaarschrift = getString(49, 1, line);
-        this.gemachtigde = getString(50, 30, line);
-        this.nummerBouwvergunning = getString(80, 10, line);
-        this.opgegevenKostenVerbouwing = getLong(90, 11, line);
-        this.mutatiecode = getString(101, 1, line);
-        this.ingangsDatum = getDate(102, 8, line);
-        this.eindDatum = getDate(110, 8, line);
-        this.aanduidingValutaSoort = getString(118, 3, line);
-        this.valutaKostenVerbouwing = getString(121, 3, line);
-        this.omschrijvingVergunning = getString(124, 40, line);
-    }
 
     public Long getId() {
         return id;
@@ -251,5 +229,28 @@ public class StufTAXRecord1024 extends StufTAXRecord implements Serializable {
 
     public void setOmschrijvingVergunning(String omschrijvingVergunning) {
         this.omschrijvingVergunning = omschrijvingVergunning;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.volgnummerTussentijdseTaxatie = getNumber(15, 3, line);
+        this.waardeVeranderingMutatie = getNumber(18, 10, line);
+        this.waardePeildatum = getDate(28, 8, line);
+        this.redenTussentijdseTaxatie = getString(36, 1, line);
+        this.resultaatTussentijdseTaxatie = getString(37, 2, line);
+        this.nummerBezwaarschrift = getString(39, 10, line);
+        this.indienerBezwaarschrift = getString(49, 1, line);
+        this.gemachtigde = getString(50, 30, line);
+        this.nummerBouwvergunning = getString(80, 10, line);
+        this.opgegevenKostenVerbouwing = getLong(90, 11, line);
+        this.mutatiecode = getString(101, 1, line);
+        this.ingangsDatum = getDate(102, 8, line);
+        this.eindDatum = getDate(110, 8, line);
+        this.aanduidingValutaSoort = getString(118, 3, line);
+        this.valutaKostenVerbouwing = getString(121, 3, line);
+        this.omschrijvingVergunning = getString(124, 40, line);
     }
 }

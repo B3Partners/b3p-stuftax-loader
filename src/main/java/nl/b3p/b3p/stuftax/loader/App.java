@@ -3,7 +3,6 @@ package nl.b3p.b3p.stuftax.loader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
@@ -26,14 +25,20 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class App {
+public final class App {
 
     private static List<Option> fileDbOpts;
     private static List<Option> urlDbOpts;
     private static List<Option> userDbOpts;
     private static List<Option> passwDbOpts;
     private static Options fileOptions, urlOptions, userOptions, passwOptions;
+    
+    private static final String URL = "url";
+    
+    private static PrintWriter pw = new PrintWriter(System.out, true);
 
+    private App() {}
+    
     private static void printHelp() {
         HelpFormatter formatter = new HelpFormatter();
         formatter.setOptionComparator(new Comparator<Option>() {
@@ -42,22 +47,21 @@ public class App {
                 for (List l : lists) {
                     int lhsIndex = l.indexOf(lhs);
                     if (lhsIndex != -1) {
-                        return new Integer(lhsIndex).compareTo(l.indexOf(rhs));
+                        return Integer.valueOf(lhsIndex).compareTo(l.indexOf(rhs));
                     }
                 }
                 return lhs.getArgName().compareTo(rhs.getArgName());
             }
         });
-        final int W = 100;
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
+
+        final int width = 100;
         formatter.printUsage(pw, 80, "java -jar b3p-stuftax-loader-1.0-jar-with-dependencies.jar <options>");
-        pw.print("\nOptions:\n");
-        formatter.printOptions(pw, W, fileOptions, 2, 2);
-        formatter.printOptions(pw, W, urlOptions, 2, 2);
-        formatter.printOptions(pw, W, userOptions, 2, 2);
-        formatter.printOptions(pw, W, passwOptions, 2, 2);
-        System.out.println(sw.toString());
+        pw.println("\nOptions:\n");
+        formatter.printOptions(pw, width, fileOptions, 2, 2);
+        formatter.printOptions(pw, width, urlOptions, 2, 2);
+        formatter.printOptions(pw, width, userOptions, 2, 2);
+        formatter.printOptions(pw, width, passwOptions, 2, 2);
+        pw.println(formatter.toString());
     }
 
     private static Options buildOptions() {
@@ -73,10 +77,10 @@ public class App {
         urlDbOpts = Arrays.asList(new Option[]{
             OptionBuilder
             .withDescription("Jdbc url naar database bijv. 'jdbc:oracle:thin:@hostnaam:port:sid' of 'jdbc:postgresql://hostname:port/db'")
-            .withArgName("url")
+            .withArgName(URL)
             .hasArg(true)
             .isRequired()
-            .create("url")
+            .create(URL)
         });
 
         userDbOpts = Arrays.asList(new Option[]{
@@ -128,16 +132,16 @@ public class App {
     private static Session getSession(CommandLine cl) {
         Configuration cfg = new Configuration();
 
-        String url = cl.getOptionValue("url");
+        String jdbcUrl = cl.getOptionValue(URL);
         String user = cl.getOptionValue("user");
         String password = cl.getOptionValue("password");
 
-        cfg.setProperty("hibernate.connection.url", url);
+        cfg.setProperty("hibernate.connection.url", jdbcUrl);
 
         cfg.setProperty("hibernate.connection.username", user);
         cfg.setProperty("hibernate.connection.password", password);
 
-        if (cl.getOptionValue("url").contains("oracle")) {
+        if (cl.getOptionValue(URL).contains("oracle")) {
             cfg.setProperty("hibernate.connection.driver_class", "oracle.jdbc.driver.OracleDriver");
             cfg.setProperty("hibernate.connection.pool_size", "10");
         } else {
@@ -152,7 +156,7 @@ public class App {
             SessionFactory sessionFactory = cfg.buildSessionFactory();
             sess = sessionFactory.openSession();
         } catch (HibernateException ex) {
-            System.out.println("Fout verbinden database: " + ex.getLocalizedMessage());
+            pw.println("Fout verbinden database: " + ex.getLocalizedMessage());
         }
 
         return sess;
@@ -186,7 +190,7 @@ public class App {
             throws MalformedURLException, IOException, StufTAXParseException {
         
         /* TODO: See if decimals are used */
-        
+
         Options options = buildOptions();
         CommandLine cl = null;
         try {
@@ -194,29 +198,29 @@ public class App {
 
             cl = parser.parse(options, args);
         } catch (ParseException e) {
-            System.out.printf("%s: %s\n\n", e.getClass().getSimpleName(), e.getMessage());
+            pw.printf("%s: %s\n\n", e.getClass().getSimpleName(), e.getMessage());
             printHelp();
             System.exit(1);
         }
-        
+
         long start = System.currentTimeMillis();
 
         int count = 0;
 
         String fileName = cl.getOptionValue("filename");
 
-        URL url = new File(fileName).toURI().toURL();
+        URL fileUrl = new File(fileName).toURI().toURL();
 
-        System.out.println("Verbinden naar database...");
+        pw.println("Verbinden naar database...");
         Session sess = getSession(cl);
         if (sess != null) {
-            System.out.println("Inladen Stuf TAX bestand...");
+            pw.println("Inladen Stuf TAX bestand...");
 
             StufTAXRecordCollector iter = null;
             try {
-                iter = new StufTAXRecordCollector(url);
+                iter = new StufTAXRecordCollector(fileUrl);
             } catch (Exception ex) {
-                System.out.println("Fout inladen bestand: " + ex.getLocalizedMessage());
+                pw.println("Fout inladen bestand: " + ex.getLocalizedMessage());
             }
 
             Transaction tx = null;
@@ -229,7 +233,7 @@ public class App {
                     sess.persist(record);
                     count++;
                 } catch (HibernateException ex) {
-                    System.out.println("Fout schrijven record: " + ex.getLocalizedMessage());
+                    pw.println("Fout schrijven record: " + ex.getLocalizedMessage());
                 }
             }
 
@@ -239,8 +243,8 @@ public class App {
         }
 
         long diff = System.currentTimeMillis() - start;
-        float avg = count / diff;
 
-        System.out.println("Er zijn " + count + " records geschreven in " + diff + " ms.");
+        pw.println("Er zijn " + count + " records geschreven in " + diff + " ms.");
+        pw.close();
     }
 }

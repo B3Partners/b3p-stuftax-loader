@@ -32,7 +32,9 @@ public class StufTAXRecordCollector implements Iterator<StufTAXRecord> {
     @Override
     public boolean hasNext() {
         try {
-            return ((record = StufTAXRecordFactory.getNextRecord(lineNumberReader)) != null);
+            record = StufTAXRecordFactory.getNextRecord(lineNumberReader);
+            
+            return record != null;
         } catch (EOFException ex) {
             return false;
         } catch (Exception ex) {

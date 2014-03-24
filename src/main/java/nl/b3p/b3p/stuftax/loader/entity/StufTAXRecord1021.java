@@ -112,39 +112,6 @@ public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1021() {
     }
-    
-    public StufTAXRecord1021(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.wijkcode = getNumber(15, 3, line);
-        this.buurtcode = getNumber(18, 3, line);
-        this.waardeOnroerendeZaakbeslasting = getNumber(21, 11, line);
-        this.redenWaardeverschilVastOnroerend = getString(32, 1, line);
-        this.getaxeerdeWaarde = getNumber(33, 11, line);
-        this.heffingsMaatstafOnroerendZaakbeslastingGebr = getNumber(44, 11, line);
-        this.gehanteerdWaarderingsvoorschrift = getString(73, 1, line);
-        this.monumentAanduiding = getString(74, 1, line);
-        this.codeOmzetbelasting = getString(75, 1, line);
-        this.groepAanduidingvergelijkbareObjecten = getString(76, 8, line);
-        this.typeAanduiding = getString(84, 6, line);
-        this.soortObjectCode = getString(90, 4, line);
-        this.aanwezigheidLift = getString(106, 1, line);
-        this.indicatieLigging = getString(114, 2, line);
-        this.codeOntbrekenNutsVoorziening = getString(118, 3, line);
-        this.fotoIndexNummer = getNumber(153, 8, line);
-        this.financieringsVorm = getString(161, 2, line);
-        this.aantekening = getString(163, 50, line);
-        this.taxatieDatum = getDate(213, 8, line);
-        this.taxateur = getString(221, 4, line);
-        this.inpandigeOpname =  getString(225, 1, line);
-        this.stijlLetter = getString(226, 1, line);
-        this.percentageGereed = getNumber(227, 3, line);
-        this.mutatiecode = getString(230, 1, line);
-        this.ingangsDatum = getDate(231, 8, line);
-        this.eindDatum = getDate(239, 8, line);
-        this.toestandsPeildatum = getDate(247, 8, line);
-    }
 
     public Long getId() {
         return id;
@@ -384,5 +351,39 @@ public class StufTAXRecord1021 extends StufTAXRecord implements Serializable {
 
     public void setToestandsPeildatum(Date toestandsPeildatum) {
         this.toestandsPeildatum = toestandsPeildatum;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.wijkcode = getNumber(15, 3, line);
+        this.buurtcode = getNumber(18, 3, line);
+        this.waardeOnroerendeZaakbeslasting = getNumber(21, 11, line);
+        this.redenWaardeverschilVastOnroerend = getString(32, 1, line);
+        this.getaxeerdeWaarde = getNumber(33, 11, line);
+        this.heffingsMaatstafOnroerendZaakbeslastingGebr = getNumber(44, 11, line);
+        this.gehanteerdWaarderingsvoorschrift = getString(73, 1, line);
+        this.monumentAanduiding = getString(74, 1, line);
+        this.codeOmzetbelasting = getString(75, 1, line);
+        this.groepAanduidingvergelijkbareObjecten = getString(76, 8, line);
+        this.typeAanduiding = getString(84, 6, line);
+        this.soortObjectCode = getString(90, 4, line);
+        this.aanwezigheidLift = getString(106, 1, line);
+        this.indicatieLigging = getString(114, 2, line);
+        this.codeOntbrekenNutsVoorziening = getString(118, 3, line);
+        this.fotoIndexNummer = getNumber(153, 8, line);
+        this.financieringsVorm = getString(161, 2, line);
+        this.aantekening = getString(163, 50, line);
+        this.taxatieDatum = getDate(213, 8, line);
+        this.taxateur = getString(221, 4, line);
+        this.inpandigeOpname =  getString(225, 1, line);
+        this.stijlLetter = getString(226, 1, line);
+        this.percentageGereed = getNumber(227, 3, line);
+        this.mutatiecode = getString(230, 1, line);
+        this.ingangsDatum = getDate(231, 8, line);
+        this.eindDatum = getDate(239, 8, line);
+        this.toestandsPeildatum = getDate(247, 8, line);
     }
 }

@@ -170,59 +170,6 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
     
     public StufTAXRecord1022() {
     }
-    
-    public StufTAXRecord1022(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.wozObjectNummer = getLong(3, 12, line);
-        this.nummerOnderdeel = getNumber(15, 6, line);
-        this.gehanteerdWaarderingsvoorschrift = getString(21, 1, line);
-        this.codeOmzetbelasting = getString(22, 1, line);
-        this.groepAanduidingvergelijkbareObjecten = getString(23, 8, line);
-        this.bepaaldeWaardeOnderdeel = getNumber(31, 10, line);
-        this.codeVrijstellingOZB = getString(41, 1, line);
-        this.codeOnderdeelWOZObject = getString(42, 4, line);
-        this.bouwjaar = getString(46, 9, line);
-        this.bouwlaag = getNumber(55, 3, line);
-        this.ontsluitingVerdieping = getString(58, 3, line);
-        this.aantalKamers = getNumber(61, 2, line);
-        this.renovatieJaar = getNumber(63, 4, line);
-        this.renovatiePercentage = getNumber(67, 2, line);
-        this.kwaliteitLuxe = getString(69, 1, line);
-        this.onderhoudsToestand = getString(70, 1, line);
-        this.uitstraling = getString(71, 1, line);
-        this.doelmatigheid = getString(72, 1, line);
-        this.voorzieningen = getString(73, 4, line);
-        this.inhoud = getNumber(77, 6, line);
-        this.codeBrutoNettoInhoud = getString(83, 1, line);
-        this.oppervlakte = getNumber(84, 6, line);
-        this.codeBrutoNettoOppervlakte = getString(90, 1, line);
-        this.lengte = getNumber(91, 4, line);
-        this.breedte = getNumber(95, 4, line);
-        this.hoogte = getNumber(99, 4, line);
-        this.frontBreedte = getNumber(103, 4, line);
-        this.aantalStuksEenheden = getNumber(107, 4, line);
-        this.waardePerStukEenheid = getNumber(111, 7, line);
-        this.huurwaardePerM2 = getNumber(118, 7, line);
-        this.huurwaarde = getNumber(125, 10, line);
-        this.kapitalisatieFactor = getNumber(135, 3, line);
-        this.vervangingskostenPerM3StukEenheid = getNumber(138, 7, line);
-        this.ongecorrigeerdeVervangingswaarde = getNumber(145, 11, line);
-        this.verwachteLevensduur = getNumber(156, 3, line);
-        this.restwaarde = getNumber(159, 3, line);
-        this.factorTechnischeVeroudering = getNumber(162, 4, line);
-        this.invloedEconomischeVeroudering = getNumber(166, 4, line);
-        this.invloedVeranderingBouwwijze = getNumber(170, 4, line);
-        this.invloedDoelmatigheid = getNumber(174, 4, line);
-        this.invloedExcessieveGebruikskosten = getNumber(178, 4, line);
-        this.factorFunctioneleVeroudering = getNumber(182, 4, line);
-        this.aantekeningOnderdeel = getString(186, 30, line);
-        this.codeTaxatieMethodiek = getString(216, 1, line);
-        this.mutatiecode = getString(217, 1, line);
-        this.ingangsDatum = getDate(218, 8, line);
-        this.eindDatum = getDate(226, 8, line);
-        this.fotoIndexNummer = getNumber(234, 8, line);
-    }
 
     public Long getId() {
         return id;
@@ -622,5 +569,65 @@ public class StufTAXRecord1022 extends StufTAXRecord implements Serializable {
 
     public void setFotoIndexNummer(Integer fotoIndexNummer) {
         this.fotoIndexNummer = fotoIndexNummer;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.wozObjectNummer = getLong(3, 12, line);
+        this.nummerOnderdeel = getNumber(15, 6, line);
+        this.gehanteerdWaarderingsvoorschrift = getString(21, 1, line);
+        this.codeOmzetbelasting = getString(22, 1, line);
+        this.groepAanduidingvergelijkbareObjecten = getString(23, 8, line);
+        this.bepaaldeWaardeOnderdeel = getNumber(31, 10, line);
+        this.codeVrijstellingOZB = getString(41, 1, line);
+        this.codeOnderdeelWOZObject = getString(42, 4, line);
+        this.bouwjaar = getString(46, 9, line);
+        this.bouwlaag = getNumber(55, 3, line);
+        this.ontsluitingVerdieping = getString(58, 3, line);
+        this.aantalKamers = getNumber(61, 2, line);
+        this.renovatieJaar = getNumber(63, 4, line);
+        this.renovatiePercentage = getNumber(67, 2, line);
+        this.kwaliteitLuxe = getString(69, 1, line);
+        this.onderhoudsToestand = getString(70, 1, line);
+        this.uitstraling = getString(71, 1, line);
+        this.doelmatigheid = getString(72, 1, line);
+        this.voorzieningen = getString(73, 4, line);        
+        
+        // Sonar Qube Ncss method count
+        fillTheRest(line); 
+    }
+    
+    private void fillTheRest(String line) {
+        this.inhoud = getNumber(77, 6, line);
+        this.codeBrutoNettoInhoud = getString(83, 1, line); 
+        this.oppervlakte = getNumber(84, 6, line);
+        this.codeBrutoNettoOppervlakte = getString(90, 1, line);
+        this.lengte = getNumber(91, 4, line);
+        this.breedte = getNumber(95, 4, line);
+        this.hoogte = getNumber(99, 4, line);
+        this.frontBreedte = getNumber(103, 4, line);
+        this.aantalStuksEenheden = getNumber(107, 4, line);
+        this.waardePerStukEenheid = getNumber(111, 7, line);
+        this.huurwaardePerM2 = getNumber(118, 7, line);
+        this.huurwaarde = getNumber(125, 10, line);
+        this.kapitalisatieFactor = getNumber(135, 3, line);
+        this.vervangingskostenPerM3StukEenheid = getNumber(138, 7, line);
+        this.ongecorrigeerdeVervangingswaarde = getNumber(145, 11, line);
+        this.verwachteLevensduur = getNumber(156, 3, line);
+        this.restwaarde = getNumber(159, 3, line);
+        this.factorTechnischeVeroudering = getNumber(162, 4, line);
+        this.invloedEconomischeVeroudering = getNumber(166, 4, line);
+        this.invloedVeranderingBouwwijze = getNumber(170, 4, line);
+        this.invloedDoelmatigheid = getNumber(174, 4, line);
+        this.invloedExcessieveGebruikskosten = getNumber(178, 4, line);
+        this.factorFunctioneleVeroudering = getNumber(182, 4, line);
+        this.aantekeningOnderdeel = getString(186, 30, line);
+        this.codeTaxatieMethodiek = getString(216, 1, line);
+        this.mutatiecode = getString(217, 1, line);
+        this.ingangsDatum = getDate(218, 8, line);
+        this.eindDatum = getDate(226, 8, line);
+        this.fotoIndexNummer = getNumber(234, 8, line);
     }
 }

@@ -47,18 +47,6 @@ public class StufTAXRecord1023 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1023() {
     }
-    
-    public StufTAXRecord1023(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.groepAanduidingvergelijkbareObjecten = getString(3, 8, line);
-        this.indicatieVermeldingTaxatieverslag = getString(11, 1, line);
-        this.wozObjectNummerRef = getLong(19, 12, line);
-        this.volgnummerMarktgegeven = getNumber(31, 8, line);
-        this.mutatiecode = getString(39, 1, line);
-        this.ingangsDatum = getDate(40, 8, line);
-        this.eindDatum = getDate(48, 8, line);        
-    }
 
     public Long getId() {
         return id;
@@ -130,5 +118,18 @@ public class StufTAXRecord1023 extends StufTAXRecord implements Serializable {
 
     public void setEindDatum(Date eindDatum) {
         this.eindDatum = eindDatum;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.groepAanduidingvergelijkbareObjecten = getString(3, 8, line);
+        this.indicatieVermeldingTaxatieverslag = getString(11, 1, line);
+        this.wozObjectNummerRef = getLong(19, 12, line);
+        this.volgnummerMarktgegeven = getNumber(31, 8, line);
+        this.mutatiecode = getString(39, 1, line);
+        this.ingangsDatum = getDate(40, 8, line);
+        this.eindDatum = getDate(48, 8, line);  
     }
 }

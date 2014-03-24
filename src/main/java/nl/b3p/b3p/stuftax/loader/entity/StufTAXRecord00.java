@@ -56,8 +56,105 @@ public class StufTAXRecord00 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord00() {
     }
-    
-    public StufTAXRecord00(LineNumberReader lineNumberReader, String line) {   
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getLineNumber() {
+        return lineNumber;
+    }
+
+    public void setLineNumber(Integer lineNumber) {
+        this.lineNumber = lineNumber;
+    }
+
+    public Integer getGemeenteCode() {
+        return gemeenteCode;
+    }
+
+    public void setGemeenteCode(Integer gemeenteCode) {
+        this.gemeenteCode = gemeenteCode;
+    }
+
+    public String getGemeenteNaam() {
+        return gemeenteNaam;
+    }
+
+    public void setGemeenteNaam(String gemeenteNaam) {
+        this.gemeenteNaam = gemeenteNaam;
+    }
+
+    public String getContactPersoon() {
+        return contactPersoon;
+    }
+
+    public void setContactPersoon(String contactPersoon) {
+        this.contactPersoon = contactPersoon;
+    }
+
+    public String getCpTelefoonnummer() {
+        return cpTelefoonnummer;
+    }
+
+    public void setCpTelefoonnummer(String cpTelefoonnummer) {
+        this.cpTelefoonnummer = cpTelefoonnummer;
+    }
+
+    public Date getAanmaakDatumBestand() {
+        return aanmaakDatumBestand;
+    }
+
+    public void setAanmaakDatumBestand(Date aanmaakDatumBestand) {
+        this.aanmaakDatumBestand = aanmaakDatumBestand;
+    }
+
+    public Integer getBijgewerkTotMetMaand() {
+        return bijgewerkTotMetMaand;
+    }
+
+    public void setBijgewerkTotMetMaand(Integer bijgewerkTotMetMaand) {
+        this.bijgewerkTotMetMaand = bijgewerkTotMetMaand;
+    }
+
+    public Date getDatumVorigeAanleveringBestand() {
+        return datumVorigeAanleveringBestand;
+    }
+
+    public void setDatumVorigeAanleveringBestand(Date datumVorigeAanleveringBestand) {
+        this.datumVorigeAanleveringBestand = datumVorigeAanleveringBestand;
+    }
+
+    public String getAardLeveringBestand() {
+        return aardLeveringBestand;
+    }
+
+    public void setAardLeveringBestand(String aardLeveringBestand) {
+        this.aardLeveringBestand = aardLeveringBestand;
+    }
+
+    public String getSoftwareLeverancier() {
+        return softwareLeverancier;
+    }
+
+    public void setSoftwareLeverancier(String softwareLeverancier) {
+        this.softwareLeverancier = softwareLeverancier;
+    }
+
+    public Integer getVersieStufTAX() {
+        return versieStufTAX;
+    }
+
+    public void setVersieStufTAX(Integer versieStufTAX) {
+        this.versieStufTAX = versieStufTAX;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
         this.lineNumber = lineNumberReader.getLineNumber();
         
         this.gemeenteCode = getNumber(3, 4, line);

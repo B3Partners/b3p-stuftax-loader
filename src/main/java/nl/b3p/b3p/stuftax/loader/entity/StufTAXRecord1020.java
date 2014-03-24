@@ -96,8 +96,209 @@ public class StufTAXRecord1020 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1020() {
     }
-    
-    public StufTAXRecord1020(LineNumberReader lineNumberReader, String line) {   
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getLineNumber() {
+        return lineNumber;
+    }
+
+    public void setLineNumber(Integer lineNumber) {
+        this.lineNumber = lineNumber;
+    }
+
+    public Long getWozObjectNummer() {
+        return wozObjectNummer;
+    }
+
+    public void setWozObjectNummer(Long wozObjectNummer) {
+        this.wozObjectNummer = wozObjectNummer;
+    }
+
+    public String getWoonplaatsNaam() {
+        return woonplaatsNaam;
+    }
+
+    public void setWoonplaatsNaam(String woonplaatsNaam) {
+        this.woonplaatsNaam = woonplaatsNaam;
+    }
+
+    public String getStraatNaam() {
+        return straatNaam;
+    }
+
+    public void setStraatNaam(String straatNaam) {
+        this.straatNaam = straatNaam;
+    }
+
+    public Integer getHuisNummer() {
+        return huisNummer;
+    }
+
+    public void setHuisNummer(Integer huisNummer) {
+        this.huisNummer = huisNummer;
+    }
+
+    public String getHuisLetter() {
+        return huisLetter;
+    }
+
+    public void setHuisLetter(String huisLetter) {
+        this.huisLetter = huisLetter;
+    }
+
+    public String getHuisNummerToevoeging() {
+        return huisNummerToevoeging;
+    }
+
+    public void setHuisNummerToevoeging(String huisNummerToevoeging) {
+        this.huisNummerToevoeging = huisNummerToevoeging;
+    }
+
+    public String getAanduidingBijHuisnummer() {
+        return aanduidingBijHuisnummer;
+    }
+
+    public void setAanduidingBijHuisnummer(String aanduidingBijHuisnummer) {
+        this.aanduidingBijHuisnummer = aanduidingBijHuisnummer;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getLokatieOmschrijving() {
+        return lokatieOmschrijving;
+    }
+
+    public void setLokatieOmschrijving(String lokatieOmschrijving) {
+        this.lokatieOmschrijving = lokatieOmschrijving;
+    }
+
+    public Integer getGrondOppervlakte() {
+        return grondOppervlakte;
+    }
+
+    public void setGrondOppervlakte(Integer grondOppervlakte) {
+        this.grondOppervlakte = grondOppervlakte;
+    }
+
+    public Integer getGebruiksCode() {
+        return gebruiksCode;
+    }
+
+    public void setGebruiksCode(Integer gebruiksCode) {
+        this.gebruiksCode = gebruiksCode;
+    }
+
+    public String getCodeGebouwdOngebouwd() {
+        return codeGebouwdOngebouwd;
+    }
+
+    public void setCodeGebouwdOngebouwd(String codeGebouwdOngebouwd) {
+        this.codeGebouwdOngebouwd = codeGebouwdOngebouwd;
+    }
+
+    public Integer getMeegetaxeerdeOppervlakteGebouwd() {
+        return meegetaxeerdeOppervlakteGebouwd;
+    }
+
+    public void setMeegetaxeerdeOppervlakteGebouwd(Integer meegetaxeerdeOppervlakteGebouwd) {
+        this.meegetaxeerdeOppervlakteGebouwd = meegetaxeerdeOppervlakteGebouwd;
+    }
+
+    public Integer getAandeelGetaxeerdeWaardeGebouwd() {
+        return aandeelGetaxeerdeWaardeGebouwd;
+    }
+
+    public void setAandeelGetaxeerdeWaardeGebouwd(Integer aandeelGetaxeerdeWaardeGebouwd) {
+        this.aandeelGetaxeerdeWaardeGebouwd = aandeelGetaxeerdeWaardeGebouwd;
+    }
+
+    public Integer getVastgesteldeWaarde() {
+        return vastgesteldeWaarde;
+    }
+
+    public void setVastgesteldeWaarde(Integer vastgesteldeWaarde) {
+        this.vastgesteldeWaarde = vastgesteldeWaarde;
+    }
+
+    public Date getWaardePeilDatum() {
+        return waardePeilDatum;
+    }
+
+    public void setWaardePeilDatum(Date waardePeilDatum) {
+        this.waardePeilDatum = waardePeilDatum;
+    }
+
+    public Integer getBijzondereWaarderingsCode() {
+        return bijzondereWaarderingsCode;
+    }
+
+    public void setBijzondereWaarderingsCode(Integer bijzondereWaarderingsCode) {
+        this.bijzondereWaarderingsCode = bijzondereWaarderingsCode;
+    }
+
+    public String getMutatieCode() {
+        return mutatieCode;
+    }
+
+    public void setMutatieCode(String mutatieCode) {
+        this.mutatieCode = mutatieCode;
+    }
+
+    public Date getIngangsDatum() {
+        return ingangsDatum;
+    }
+
+    public void setIngangsDatum(Date ingangsDatum) {
+        this.ingangsDatum = ingangsDatum;
+    }
+
+    public Date getEindDatum() {
+        return eindDatum;
+    }
+
+    public void setEindDatum(Date eindDatum) {
+        this.eindDatum = eindDatum;
+    }
+
+    public Integer getStraatCode() {
+        return straatCode;
+    }
+
+    public void setStraatCode(Integer straatCode) {
+        this.straatCode = straatCode;
+    }
+
+    public String getAanduidingValutaSoort() {
+        return aanduidingValutaSoort;
+    }
+
+    public void setAanduidingValutaSoort(String aanduidingValutaSoort) {
+        this.aanduidingValutaSoort = aanduidingValutaSoort;
+    }
+
+    public Integer getCodeBlokkerenTaxatie() {
+        return codeBlokkerenTaxatie;
+    }
+
+    public void setCodeBlokkerenTaxatie(Integer codeBlokkerenTaxatie) {
+        this.codeBlokkerenTaxatie = codeBlokkerenTaxatie;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
         this.lineNumber = lineNumberReader.getLineNumber();
         
         this.wozObjectNummer = getLong(3, 12, line);

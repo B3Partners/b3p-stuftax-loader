@@ -50,20 +50,6 @@ public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1030() {
     }
-    
-    public StufTAXRecord1030(LineNumberReader lineNumberReader, String line) {   
-        this.lineNumber = lineNumberReader.getLineNumber();
-        
-        this.aNummerNatuurlijkpersoon = getNumber(3, 10, line);
-        this.sofinummer = getNumber(13, 9, line);
-        this.voorletters = getString(22, 10, line);
-        this.voorvoegsels = getString(32, 10, line);
-        this.geslachtsBedrijfsNaam = getString(42, 135, line);
-        this.partnerBedrijfsNaamVerkort = getString(177, 55, line);
-        this.voorvoegselsPartnerNaam = getString(232, 10, line);
-        this.aanvullingSofiNummer = getNumber(242, 10, line);
-        this.aanduidingNaamgebruik = getString(252, 1, line);
-    }
 
     public Long getId() {
         return id;
@@ -151,5 +137,20 @@ public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
 
     public void setAanduidingNaamgebruik(String aanduidingNaamgebruik) {
         this.aanduidingNaamgebruik = aanduidingNaamgebruik;
+    }
+
+    @Override
+    public void fillValues(LineNumberReader lineNumberReader, String line) {
+        this.lineNumber = lineNumberReader.getLineNumber();
+        
+        this.aNummerNatuurlijkpersoon = getNumber(3, 10, line);
+        this.sofinummer = getNumber(13, 9, line);
+        this.voorletters = getString(22, 10, line);
+        this.voorvoegsels = getString(32, 10, line);
+        this.geslachtsBedrijfsNaam = getString(42, 135, line);
+        this.partnerBedrijfsNaamVerkort = getString(177, 55, line);
+        this.voorvoegselsPartnerNaam = getString(232, 10, line);
+        this.aanvullingSofiNummer = getNumber(242, 10, line);
+        this.aanduidingNaamgebruik = getString(252, 1, line);
     }
 }
