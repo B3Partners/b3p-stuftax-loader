@@ -39,7 +39,7 @@ public abstract class StufTAXRecord {
 
     public Integer getNumber(int startPos, int length, String line) {
         Integer nr = null;
-        if (line != null) {
+        if (line != null) {            
             String val = line.substring(startPos - 1, (startPos - 1) + length);
             nr = Integer.valueOf(val);
         }

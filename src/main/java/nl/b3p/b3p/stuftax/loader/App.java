@@ -3,7 +3,6 @@ package nl.b3p.b3p.stuftax.loader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -32,13 +31,12 @@ public final class App {
     private static List<Option> userDbOpts;
     private static List<Option> passwDbOpts;
     private static Options fileOptions, urlOptions, userOptions, passwOptions;
-    
     private static final String URL = "url";
-    
     private static PrintWriter pw = new PrintWriter(System.out, true);
 
-    private App() {}
-    
+    private App() {
+    }
+
     private static void printHelp() {
         HelpFormatter formatter = new HelpFormatter();
         formatter.setOptionComparator(new Comparator<Option>() {
@@ -137,7 +135,6 @@ public final class App {
         String password = cl.getOptionValue("password");
 
         cfg.setProperty("hibernate.connection.url", jdbcUrl);
-
         cfg.setProperty("hibernate.connection.username", user);
         cfg.setProperty("hibernate.connection.password", password);
 
@@ -148,6 +145,11 @@ public final class App {
             cfg.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
             cfg.setProperty("hibernate.connection.pool_size", "10");
         }
+
+        //cfg.setProperty("hibernate.jdbc.use_get_generated_keys", "false");        
+        //cfg.setProperty("hibernate.jdbc.use_streams_for_binary", "true");
+        //cfg.setProperty("hibernate.jdbc.hibernate.ejb.naming_strategy", "org.hibernate.cfg.ImprovedNamingStrategy");
+        //cfg.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.NoCacheProvider");
 
         addAnnotatedClassesToConfig(cfg);
 
@@ -187,8 +189,8 @@ public final class App {
     }
 
     public static void main(String[] args)
-            throws MalformedURLException, IOException, StufTAXParseException {
-        
+            throws IOException, StufTAXParseException {
+
         /* TODO: See if decimals are used */
 
         Options options = buildOptions();
@@ -205,14 +207,15 @@ public final class App {
 
         long start = System.currentTimeMillis();
 
-        int count = 0;
+        int succes = 0;
+        int error = 0;
 
         String fileName = cl.getOptionValue("filename");
-
         URL fileUrl = new File(fileName).toURI().toURL();
 
         pw.println("Verbinden naar database...");
         Session sess = getSession(cl);
+
         if (sess != null) {
             pw.println("Inladen Stuf TAX bestand...");
 
@@ -223,16 +226,18 @@ public final class App {
                 pw.println("Fout inladen bestand: " + ex.getLocalizedMessage());
             }
 
-            Transaction tx = null;
-            tx = sess.beginTransaction();
+            Transaction tx = sess.beginTransaction();
 
             while (iter != null && iter.hasNext()) {
-                StufTAXRecord record = iter.next();
-
                 try {
+                    StufTAXRecord record = iter.next();
+
                     sess.persist(record);
-                    count++;
-                } catch (HibernateException ex) {
+                    
+                    succes++;
+                } catch (Exception ex) {
+                    error++;
+
                     pw.println("Fout schrijven record: " + ex.getLocalizedMessage());
                 }
             }
@@ -244,7 +249,7 @@ public final class App {
 
         long diff = System.currentTimeMillis() - start;
 
-        pw.println("Er zijn " + count + " records geschreven in " + diff + " ms.");
+        pw.println("Er zijn " + succes + " records geschreven in " + diff + " ms. Fouten: " + error);
         pw.close();
     }
 }

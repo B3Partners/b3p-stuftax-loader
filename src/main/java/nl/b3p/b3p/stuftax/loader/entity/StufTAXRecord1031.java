@@ -4,26 +4,24 @@ import java.io.LineNumberReader;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author boy
  */
 @Entity
-@Table(name = "stax_subject_31")
+@Table(name = "stuftax_31")
 public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
     
     @Id
-    @GenericGenerator(name="generator", strategy="increment")
-    @GeneratedValue(generator="generator")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     @Column(name="line_number")
     private Integer lineNumber;
     
     @Column(name="sofinummer")
-    private Integer sofinummer;    
+    private Long sofinummer;    
     
     @Column(name="straatnaam")
     private String straatNaam;
@@ -64,13 +62,13 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
     private String lokatieOmschrijving;
     
     @Column(name="aanvulling_sofinummer")
-    private Integer aanvullingSofinummer;
+    private Long aanvullingSofinummer;
     
     @Column(name="handelsregisternummer")
-    private Integer handelsRegisterNummer;
+    private Long handelsRegisterNummer;
     
     @Column(name="subjectnummer_akr")
-    private Integer subjectNummerAKR;
+    private Long subjectNummerAKR;
     
     @Column(name="adelijke_titel_predikaat")
     private String adelijkeTitelPredikaat;
@@ -111,11 +109,11 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
         this.lineNumber = lineNumber;
     }
 
-    public Integer getSofinummer() {
+    public Long getSofinummer() {
         return sofinummer;
     }
 
-    public void setSofinummer(Integer sofinummer) {
+    public void setSofinummer(Long sofinummer) {
         this.sofinummer = sofinummer;
     }
 
@@ -215,27 +213,27 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
         this.lokatieOmschrijving = lokatieOmschrijving;
     }
 
-    public Integer getAanvullingSofinummer() {
+    public Long getAanvullingSofinummer() {
         return aanvullingSofinummer;
     }
 
-    public void setAanvullingSofinummer(Integer aanvullingSofinummer) {
+    public void setAanvullingSofinummer(Long aanvullingSofinummer) {
         this.aanvullingSofinummer = aanvullingSofinummer;
     }
 
-    public Integer getHandelsRegisterNummer() {
+    public Long getHandelsRegisterNummer() {
         return handelsRegisterNummer;
     }
 
-    public void setHandelsRegisterNummer(Integer handelsRegisterNummer) {
+    public void setHandelsRegisterNummer(Long handelsRegisterNummer) {
         this.handelsRegisterNummer = handelsRegisterNummer;
     }
 
-    public Integer getSubjectNummerAKR() {
+    public Long getSubjectNummerAKR() {
         return subjectNummerAKR;
     }
 
-    public void setSubjectNummerAKR(Integer subjectNummerAKR) {
+    public void setSubjectNummerAKR(Long subjectNummerAKR) {
         this.subjectNummerAKR = subjectNummerAKR;
     }
 
@@ -291,7 +289,7 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
     public void fillValues(LineNumberReader lineNumberReader, String line) {
         this.lineNumber = lineNumberReader.getLineNumber();
         
-        this.sofinummer = getNumber(3, 9, line);
+        this.sofinummer = getLong(3, 9, line);
         this.straatNaam = getString(12, 24, line);
         this.huisNummer = getNumber(36, 5, line);
         this.huisLetter = getString(41, 1, line);
@@ -304,9 +302,9 @@ public class StufTAXRecord1031 extends StufTAXRecord implements Serializable {
         this.ingangsDatum = getDate(135, 8, line);
         this.eindDatum = getDate(143, 8, line);
         this.lokatieOmschrijving = getString(151, 40, line);
-        this.aanvullingSofinummer = getNumber(191, 10, line);
-        this.handelsRegisterNummer = getNumber(201, 8, line);
-        this.subjectNummerAKR = getNumber(213, 10, line);
+        this.aanvullingSofinummer = getLong(191, 10, line);
+        this.handelsRegisterNummer = getLong(201, 8, line);
+        this.subjectNummerAKR = getLong(213, 10, line);
         this.adelijkeTitelPredikaat = getString(223, 2, line);
         this.geslachtsAanduiding = getString(226, 1, line);
         this.geboorteDatumNatPersoon = getDate(227, 8, line);

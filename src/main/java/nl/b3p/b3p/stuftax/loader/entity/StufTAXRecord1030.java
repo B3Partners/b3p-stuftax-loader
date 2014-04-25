@@ -3,29 +3,27 @@ package nl.b3p.b3p.stuftax.loader.entity;
 import java.io.LineNumberReader;
 import java.io.Serializable;
 import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author boy
  */
 @Entity
-@Table(name = "stax_subject_30")
+@Table(name = "stuftax_30")
 public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
     
     @Id
-    @GenericGenerator(name="generator", strategy="increment")
-    @GeneratedValue(generator="generator")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     @Column(name="line_number")
     private Integer lineNumber;
     
     @Column(name="anummer_nat_persoon")
-    private Integer aNummerNatuurlijkpersoon;
+    private Long aNummerNatuurlijkpersoon;
     
     @Column(name="sofinummer")
-    private Integer sofinummer;
+    private Long sofinummer;
     
     @Column(name="voorletters")
     private String voorletters;
@@ -67,19 +65,19 @@ public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
         this.lineNumber = lineNumber;
     }
 
-    public Integer getaNummerNatuurlijkpersoon() {
+    public Long getaNummerNatuurlijkpersoon() {
         return aNummerNatuurlijkpersoon;
     }
 
-    public void setaNummerNatuurlijkpersoon(Integer aNummerNatuurlijkpersoon) {
+    public void setaNummerNatuurlijkpersoon(Long aNummerNatuurlijkpersoon) {
         this.aNummerNatuurlijkpersoon = aNummerNatuurlijkpersoon;
     }
 
-    public Integer getSofinummer() {
+    public Long getSofinummer() {
         return sofinummer;
     }
 
-    public void setSofinummer(Integer sofinummer) {
+    public void setSofinummer(Long sofinummer) {
         this.sofinummer = sofinummer;
     }
 
@@ -143,8 +141,8 @@ public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
     public void fillValues(LineNumberReader lineNumberReader, String line) {
         this.lineNumber = lineNumberReader.getLineNumber();
         
-        this.aNummerNatuurlijkpersoon = getNumber(3, 10, line);
-        this.sofinummer = getNumber(13, 9, line);
+        this.aNummerNatuurlijkpersoon = getLong(3, 10, line);
+        this.sofinummer = getLong(13, 9, line);
         this.voorletters = getString(22, 10, line);
         this.voorvoegsels = getString(32, 10, line);
         this.geslachtsBedrijfsNaam = getString(42, 135, line);

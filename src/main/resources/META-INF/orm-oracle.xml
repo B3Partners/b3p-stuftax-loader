@@ -16,8 +16,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord00">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_voorloop_id_seq"/>
-                <sequence-generator name="stax_voorloop_id_seq" sequence-name="stax_voorloop_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_00_id_seq"/>
+                <sequence-generator name="stuftax_00_id_seq" sequence-name="stuftax_00_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -25,8 +25,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1020">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_wozobject_id_seq"/>
-                <sequence-generator name="stax_wozobject_id_seq" sequence-name="stax_wozobject_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_20_id_seq"/>
+                <sequence-generator name="stuftax_20_id_seq" sequence-name="stuftax_20_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -34,8 +34,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1021">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_onderbouwing_id_seq"/>
-                <sequence-generator name="stax_onderbouwing_id_seq" sequence-name="stax_onderbouwing_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_21_id_seq"/>
+                <sequence-generator name="stuftax_21_id_seq" sequence-name="stuftax_21_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -43,8 +43,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1022">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_onderbouw_onderd_id_seq"/>
-                <sequence-generator name="stax_onderbouw_onderd_id_seq" sequence-name="stax_onderbouw_onderd_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_22_id_seq"/>
+                <sequence-generator name="stuftax_22_id_seq" sequence-name="stuftax_22_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -52,8 +52,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1023">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_identif_marktinfo_id_seq"/>
-                <sequence-generator name="stax_identif_marktinfo_id_seq" sequence-name="stax_identif_marktinfo_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_23_id_seq"/>
+                <sequence-generator name="stuftax_23_id_seq" sequence-name="stuftax_23_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -61,8 +61,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1024">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_tussentijd_taxatie_id_seq"/>
-                <sequence-generator name="stax_tussentijd_taxatie_id_seq" sequence-name="stax_tussentijd_taxatie_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_24_id_seq"/>
+                <sequence-generator name="stuftax_24_id_seq" sequence-name="stuftax_24_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -70,8 +70,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1025">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_controle_objecten_id_seq"/>
-                <sequence-generator name="stax_controle_objecten_id_seq" sequence-name="stax_controle_objecten_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_25_id_seq"/>
+                <sequence-generator name="stuftax_25_id_seq" sequence-name="stuftax_25_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -79,8 +79,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1030">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_subject_30_id_seq"/>
-                <sequence-generator name="stax_subject_30_id_seq" sequence-name="stax_subject_30_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_30_id_seq"/>
+                <sequence-generator name="stuftax_30_id_seq" sequence-name="stuftax_30_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -88,8 +88,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1031">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_subject_31_id_seq"/>
-                <sequence-generator name="stax_subject_31_id_seq" sequence-name="stax_subject_31_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_31_id_seq"/>
+                <sequence-generator name="stuftax_31_id_seq" sequence-name="stuftax_31_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -97,8 +97,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1035">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_extra_adres_id_seq"/>
-                <sequence-generator name="stax_extra_adres_id_seq" sequence-name="stax_extra_adres_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_35_id_seq"/>
+                <sequence-generator name="stuftax_35_id_seq" sequence-name="stuftax_35_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -106,8 +106,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1040">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_kadaster_identif_id_seq"/>
-                <sequence-generator name="stax_kadaster_identif_id_seq" sequence-name="stax_kadaster_identif_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_40_id_seq"/>
+                <sequence-generator name="stuftax_40_id_seq" sequence-name="stuftax_40_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -115,8 +115,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1041">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_sluimer_woz_id_seq"/>
-                <sequence-generator name="stax_sluimer_woz_id_seq" sequence-name="stax_sluimer_woz_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_41_id_seq"/>
+                <sequence-generator name="stuftax_41_id_seq" sequence-name="stuftax_41_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -124,8 +124,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1051">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_kadaster_object_id_seq"/>
-                <sequence-generator name="stax_kadaster_object_id_seq" sequence-name="stax_kadaster_object_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_51_id_seq"/>
+                <sequence-generator name="stuftax_51_id_seq" sequence-name="stuftax_51_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -133,8 +133,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1052">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_marktinfo_id_seq"/>
-                <sequence-generator name="stax_marktinfo_id_seq" sequence-name="stax_marktinfo_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_52_id_seq"/>
+                <sequence-generator name="stuftax_52_id_seq" sequence-name="stuftax_52_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -142,8 +142,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1053">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_marktinfo_woz_id_seq"/>
-                <sequence-generator name="stax_marktinfo_woz_id_seq" sequence-name="stax_marktinfo_woz_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_53_id_seq"/>
+                <sequence-generator name="stuftax_53_id_seq" sequence-name="stuftax_53_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -151,8 +151,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1054">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_marktinfo_kadaster_id_seq"/>
-                <sequence-generator name="stax_marktinfo_kadaster_id_seq" sequence-name="stax_marktinfo_kadaster_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_54_id_seq"/>
+                <sequence-generator name="stuftax_54_id_seq" sequence-name="stuftax_54_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -160,8 +160,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1060">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_eigenaar_gebruiker_id_seq"/>
-                <sequence-generator name="stax_eigenaar_gebruiker_id_seq" sequence-name="stax_eigenaar_gebruiker_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_60_id_seq"/>
+                <sequence-generator name="stuftax_60_id_seq" sequence-name="stuftax_60_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -169,8 +169,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_status_beschikking_id_seq"/>
-                <sequence-generator name="stax_status_beschikking_id_seq" sequence-name="stax_status_beschikking_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_80_id_seq"/>
+                <sequence-generator name="stuftax_80_id_seq" sequence-name="stuftax_80_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -178,8 +178,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_code_soortobject_id_seq"/>
-                <sequence-generator name="stax_code_soortobject_id_seq" sequence-name="stax_code_soortobject_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_91_id_seq"/>
+                <sequence-generator name="stuftax_91_id_seq" sequence-name="stuftax_91_id_seq"/>
             </id>
         </attributes>
     </entity>
@@ -187,8 +187,8 @@
     <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092">
         <attributes>
             <id name="id">
-                <generated-value strategy="SEQUENCE" generator="stax_code_onderdeel_id_seq"/>
-                <sequence-generator name="stax_code_onderdeel_id_seq" sequence-name="stax_code_onderdeel_id_seq"/>
+                <generated-value strategy="SEQUENCE" generator="stuftax_92_id_seq"/>
+                <sequence-generator name="stuftax_92_id_seq" sequence-name="stuftax_92_id_seq"/>
             </id>
         </attributes>
     </entity>

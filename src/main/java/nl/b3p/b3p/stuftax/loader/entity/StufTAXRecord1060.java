@@ -4,19 +4,17 @@ import java.io.LineNumberReader;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author boy
  */
 @Entity
-@Table(name = "stax_eigenaar_gebruiker")
+@Table(name = "stuftax_60")
 public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
     
     @Id
-    @GenericGenerator(name="generator", strategy="increment")
-    @GeneratedValue(generator="generator")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     @Column(name="line_number")
@@ -29,7 +27,7 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
     private Long aNummerNatuurlijkpersoon;
     
     @Column(name="sofinummer")
-    private Integer sofinummer;
+    private Long sofinummer;
     
     @Column(name="aand_eigenaar_gebruiker")
     private String aanduidingEigenaarGebruiker;
@@ -52,7 +50,7 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
     private Date eindDatum;
     
     @Column(name="aanvulling_sofinummer")
-    private Integer aanvullingSofinummer;
+    private Long aanvullingSofinummer;
     
     @Column(name="subjectnummer_akr")
     private Long subjectNummerAKR;
@@ -92,11 +90,11 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
         this.aNummerNatuurlijkpersoon = aNummerNatuurlijkpersoon;
     }
 
-    public Integer getSofinummer() {
+    public Long getSofinummer() {
         return sofinummer;
     }
 
-    public void setSofinummer(Integer sofinummer) {
+    public void setSofinummer(Long sofinummer) {
         this.sofinummer = sofinummer;
     }
 
@@ -148,11 +146,11 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
         this.eindDatum = eindDatum;
     }
 
-    public Integer getAanvullingSofinummer() {
+    public Long getAanvullingSofinummer() {
         return aanvullingSofinummer;
     }
 
-    public void setAanvullingSofinummer(Integer aanvullingSofinummer) {
+    public void setAanvullingSofinummer(Long aanvullingSofinummer) {
         this.aanvullingSofinummer = aanvullingSofinummer;
     }
 
@@ -170,14 +168,14 @@ public class StufTAXRecord1060 extends StufTAXRecord implements Serializable {
         
         this.wozObjectNummer = getLong(3, 12, line);
         this.aNummerNatuurlijkpersoon = getLong(15, 10, line);
-        this.sofinummer = getNumber(25, 9, line);
+        this.sofinummer = getLong(25, 9, line);
         this.aanduidingEigenaarGebruiker = getString(34, 1, line);
         this.zakelijkRechtCode = getString(35, 6, line);
         this.csCode = getString(41, 2, line);
         this.mutatiecode = getString(43, 1, line);
         this.ingangsDatum = getDate(44, 8, line);
         this.eindDatum = getDate(52, 8, line);
-        this.aanvullingSofinummer = getNumber(60, 10, line);
+        this.aanvullingSofinummer = getLong(60, 10, line);
         this.subjectNummerAKR = getLong(70, 10, line);
     }
 }

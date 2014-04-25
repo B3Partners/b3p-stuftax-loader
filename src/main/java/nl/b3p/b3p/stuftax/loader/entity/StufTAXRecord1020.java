@@ -4,19 +4,17 @@ import java.io.LineNumberReader;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author boy
  */
 @Entity
-@Table(name = "stax_wozobject")
+@Table(name = "stuftax_20")
 public class StufTAXRecord1020 extends StufTAXRecord implements Serializable {
     
-    @Id
-    @GenericGenerator(name="generator", strategy="increment")
-    @GeneratedValue(generator="generator")
+    @Id 
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     @Column(name="line_number")
@@ -96,7 +94,7 @@ public class StufTAXRecord1020 extends StufTAXRecord implements Serializable {
 
     public StufTAXRecord1020() {
     }
-
+    
     public Long getId() {
         return id;
     }

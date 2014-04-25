@@ -4,19 +4,17 @@ import java.io.LineNumberReader;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author boy
  */
 @Entity
-@Table(name = "stax_status_beschikking")
+@Table(name = "stuftax_80")
 public class StufTAXRecord1080 extends StufTAXRecord implements Serializable {
     
     @Id
-    @GenericGenerator(name="generator", strategy="increment")
-    @GeneratedValue(generator="generator")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     @Column(name="line_number")
@@ -47,10 +45,10 @@ public class StufTAXRecord1080 extends StufTAXRecord implements Serializable {
     private Long aNummerNatuurlijkpersoon;
     
     @Column(name="sofinummer")
-    private Integer sofinummer;
+    private Long sofinummer;
     
     @Column(name="aanvulling_sofinummer")
-    private Integer aanvullingSofinummer;
+    private Long aanvullingSofinummer;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @Column(name="datum_status")
@@ -131,19 +129,19 @@ public class StufTAXRecord1080 extends StufTAXRecord implements Serializable {
         this.aNummerNatuurlijkpersoon = aNummerNatuurlijkpersoon;
     }
 
-    public Integer getSofinummer() {
+    public Long getSofinummer() {
         return sofinummer;
     }
 
-    public void setSofinummer(Integer sofinummer) {
+    public void setSofinummer(Long sofinummer) {
         this.sofinummer = sofinummer;
     }
 
-    public Integer getAanvullingSofinummer() {
+    public Long getAanvullingSofinummer() {
         return aanvullingSofinummer;
     }
 
-    public void setAanvullingSofinummer(Integer aanvullingSofinummer) {
+    public void setAanvullingSofinummer(Long aanvullingSofinummer) {
         this.aanvullingSofinummer = aanvullingSofinummer;
     }
 
@@ -166,8 +164,8 @@ public class StufTAXRecord1080 extends StufTAXRecord implements Serializable {
         this.ingangsDatum = getDate(28, 8, line);
         this.eindDatum = getDate(36, 8, line);
         this.aNummerNatuurlijkpersoon = getLong(44, 10, line);
-        this.sofinummer = getNumber(54, 9, line);
-        this.aanvullingSofinummer = getNumber(63, 10, line);
+        this.sofinummer = getLong(54, 9, line);
+        this.aanvullingSofinummer = getLong(63, 10, line);
         this.datumStatus = getDate(73, 8, line);
     }
 }
