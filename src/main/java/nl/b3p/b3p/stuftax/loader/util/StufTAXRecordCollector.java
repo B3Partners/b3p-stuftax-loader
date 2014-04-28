@@ -7,6 +7,7 @@ import java.io.LineNumberReader;
 import java.net.URL;
 import java.util.Iterator;
 import nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord;
+import nl.b3p.b3p.stuftax.loader.entity.StufTAXTotalenRecord;
 import org.apache.commons.io.input.CountingInputStream;
 
 /**

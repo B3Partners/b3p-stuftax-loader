@@ -39,6 +39,8 @@
 
     drop table stuftax_92 cascade constraints;
 
+    drop table stuftax_totalen cascade constraints;
+
     drop sequence stuftax_00_id_seq;
 
     drop sequence stuftax_20_id_seq;
@@ -78,6 +80,8 @@
     drop sequence stuftax_91_id_seq;
 
     drop sequence stuftax_92_id_seq;
+
+    drop sequence stuftax_totalen_id_seq;
 
     create table stuftax_00 (
         id number(19,0) not null,
@@ -509,6 +513,34 @@
         primary key (id)
     );
 
+    create table stuftax_totalen (
+        id number(19,0) not null,
+        aantal_10 number(10,0),
+        aantal_20 number(10,0),
+        aantal_21 number(10,0),
+        aantal_22 number(10,0),
+        aantal_23 number(10,0),
+        aantal_24 number(10,0),
+        aantal_25 number(10,0),
+        aantal_30 number(10,0),
+        aantal_31 number(10,0),
+        aantal_35 number(10,0),
+        aantal_40 number(10,0),
+        aantal_41 number(10,0),
+        aantal_51 number(10,0),
+        aantal_52 number(10,0),
+        aantal_53 number(10,0),
+        aantal_54 number(10,0),
+        aantal_60 number(10,0),
+        aantal_80 number(10,0),
+        aantal_90 number(10,0),
+        aantal_91 number(10,0),
+        aantal_92 number(10,0),
+        inleesdatum timestamp,
+        line_number number(10,0),
+        primary key (id)
+    );
+
     create sequence stuftax_00_id_seq;
 
     create sequence stuftax_20_id_seq;
@@ -548,3 +580,5 @@
     create sequence stuftax_91_id_seq;
 
     create sequence stuftax_92_id_seq;
+
+    create sequence stuftax_totalen_id_seq;

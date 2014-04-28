@@ -193,4 +193,13 @@
         </attributes>
     </entity>
     
+    <entity class="nl.b3p.b3p.stuftax.loader.entity.StufTAXTotalenRecord">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="stuftax_totalen_id_seq"/>
+                <sequence-generator name="stuftax_totalen_id_seq" sequence-name="stuftax_totalen_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    
 </entity-mappings>

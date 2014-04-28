@@ -4,6 +4,7 @@ import java.io.LineNumberReader;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -14,7 +15,8 @@ import javax.persistence.*;
 public class StufTAXRecord1025 extends StufTAXRecord implements Serializable {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GenericGenerator(name="generator", strategy="increment")
+    @GeneratedValue(generator="generator")
     private Long id;
     
     @Column(name="line_number")

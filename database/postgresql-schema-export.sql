@@ -39,6 +39,8 @@
 
     drop table stuftax_92 cascade;
 
+    drop table stuftax_totalen cascade;
+
     create table stuftax_00 (
         id  bigserial not null,
         aanmaak_datum_bestand timestamp,
@@ -466,5 +468,33 @@
         mutatiecode varchar(255),
         omschrijving varchar(255),
         verkorte_omschrijving varchar(255),
+        primary key (id)
+    );
+
+    create table stuftax_totalen (
+        id  bigserial not null,
+        aantal_10 int4,
+        aantal_20 int4,
+        aantal_21 int4,
+        aantal_22 int4,
+        aantal_23 int4,
+        aantal_24 int4,
+        aantal_25 int4,
+        aantal_30 int4,
+        aantal_31 int4,
+        aantal_35 int4,
+        aantal_40 int4,
+        aantal_41 int4,
+        aantal_51 int4,
+        aantal_52 int4,
+        aantal_53 int4,
+        aantal_54 int4,
+        aantal_60 int4,
+        aantal_80 int4,
+        aantal_90 int4,
+        aantal_91 int4,
+        aantal_92 int4,
+        inleesdatum timestamp,
+        line_number int4,
         primary key (id)
     );

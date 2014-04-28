@@ -27,6 +27,7 @@
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXTotalenRecord</class>        
        
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
@@ -66,6 +67,7 @@
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXTotalenRecord</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

@@ -146,11 +146,6 @@ public final class App {
             cfg.setProperty("hibernate.connection.pool_size", "10");
         }
 
-        //cfg.setProperty("hibernate.jdbc.use_get_generated_keys", "false");        
-        //cfg.setProperty("hibernate.jdbc.use_streams_for_binary", "true");
-        //cfg.setProperty("hibernate.jdbc.hibernate.ejb.naming_strategy", "org.hibernate.cfg.ImprovedNamingStrategy");
-        //cfg.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.NoCacheProvider");
-
         addAnnotatedClassesToConfig(cfg);
 
         Session sess = null;
@@ -186,6 +181,7 @@ public final class App {
         cfg.addAnnotatedClass(StufTAXRecord1080.class);
         cfg.addAnnotatedClass(StufTAXRecord1091.class);
         cfg.addAnnotatedClass(StufTAXRecord1092.class);
+        cfg.addAnnotatedClass(StufTAXTotalenRecord.class);
     }
 
     public static void main(String[] args)
@@ -207,8 +203,8 @@ public final class App {
 
         long start = System.currentTimeMillis();
 
-        int succes = 0;
         int error = 0;
+        int success = 0;
 
         String fileName = cl.getOptionValue("filename");
         URL fileUrl = new File(fileName).toURI().toURL();
@@ -232,9 +228,13 @@ public final class App {
                 try {
                     StufTAXRecord record = iter.next();
 
-                    sess.persist(record);
-                    
-                    succes++;
+                    if (record != null) {
+                        sess.persist(record);
+                        if (record instanceof StufTAXTotalenRecord) {
+                            break;
+                        }
+                        success++;
+                    }
                 } catch (Exception ex) {
                     error++;
 
@@ -247,9 +247,9 @@ public final class App {
             sess.close();
         }
 
-        long diff = System.currentTimeMillis() - start;
+        long diff = (System.currentTimeMillis() - start) / 1000;
 
-        pw.println("Er zijn " + succes + " records geschreven in " + diff + " ms. Fouten: " + error);
+        pw.println("Bestand ingeladen in " + diff + "s. " + success + " records ingelezen met " + error + " fouten.");
         pw.close();
     }
 }

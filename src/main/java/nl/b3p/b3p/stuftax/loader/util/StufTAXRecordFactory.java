@@ -1,10 +1,7 @@
 package nl.b3p.b3p.stuftax.loader.util;
 
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.LineNumberReader;
-import java.util.ArrayList;
-import java.util.List;
 import nl.b3p.b3p.stuftax.loader.entity.*;
 
 /**
@@ -12,9 +9,6 @@ import nl.b3p.b3p.stuftax.loader.entity.*;
  * @author boy
  */
 final class StufTAXRecordFactory {
-
-    static List<Integer> recordTypes = new ArrayList();
-    static List<Integer> subTypes = new ArrayList();
 
     private StufTAXRecordFactory() {
     }
@@ -24,7 +18,7 @@ final class StufTAXRecordFactory {
 
         String line = lineNumberReader.readLine();
         int recordType = Integer.parseInt(line.substring(0, 2));
-
+        
         StufTAXRecord record = null;
         switch (recordType) {
             case 0:
@@ -88,7 +82,8 @@ final class StufTAXRecordFactory {
                 record = new StufTAXRecord1092();
                 break;
             case 98:
-                throw new EOFException();
+                record = new StufTAXTotalenRecord();
+                break;
             default:
                 throw new IOException("Recordtype " + recordType + " onbekend!");
         }
