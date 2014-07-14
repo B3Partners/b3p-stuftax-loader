@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import nl.b3p.b3p.stuftax.loader.entity.*;
 import nl.b3p.b3p.stuftax.loader.util.StufTAXParseException;
 import nl.b3p.b3p.stuftax.loader.util.StufTAXRecordCollector;
@@ -23,6 +24,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.impl.SessionFactoryImpl;
+import org.hibernate.persister.entity.AbstractEntityPersister;
 
 public final class App {
 
@@ -30,7 +33,8 @@ public final class App {
     private static List<Option> urlDbOpts;
     private static List<Option> userDbOpts;
     private static List<Option> passwDbOpts;
-    private static Options fileOptions, urlOptions, userOptions, passwOptions;
+    private static List<Option> actionDbOpts;
+    private static Options fileOptions, urlOptions, userOptions, passwOptions, actionOptions;
     private static final String URL = "url";
     private static PrintWriter pw = new PrintWriter(System.out, true);
 
@@ -41,7 +45,7 @@ public final class App {
         HelpFormatter formatter = new HelpFormatter();
         formatter.setOptionComparator(new Comparator<Option>() {
             public int compare(Option lhs, Option rhs) {
-                List[] lists = new List[]{fileDbOpts, urlDbOpts, userDbOpts, passwDbOpts};
+                List[] lists = new List[]{fileDbOpts, urlDbOpts, userDbOpts, passwDbOpts, actionDbOpts};
                 for (List l : lists) {
                     int lhsIndex = l.indexOf(lhs);
                     if (lhsIndex != -1) {
@@ -59,6 +63,7 @@ public final class App {
         formatter.printOptions(pw, width, urlOptions, 2, 2);
         formatter.printOptions(pw, width, userOptions, 2, 2);
         formatter.printOptions(pw, width, passwOptions, 2, 2);
+        formatter.printOptions(pw, width, actionOptions, 2, 2);
         pw.println(formatter.toString());
     }
 
@@ -98,6 +103,15 @@ public final class App {
             .isRequired()
             .create("password")
         });
+        
+        actionDbOpts = Arrays.asList(new Option[]{
+            OptionBuilder
+            .withDescription("Database actie bijv. '-action load' of '-action delete'")
+            .withArgName("action")
+            .hasArg(true)
+            .isRequired(true)
+            .create("action")
+        });
 
         Options options = new Options();
         fileOptions = new Options();
@@ -122,6 +136,12 @@ public final class App {
         for (Option o : passwDbOpts) {
             options.addOption(o);
             passwOptions.addOption(o);
+        }
+        
+        actionOptions = new Options();
+        for (Option o : actionDbOpts) {
+            options.addOption(o);
+            actionOptions.addOption(o);
         }
 
         return options;
@@ -184,11 +204,35 @@ public final class App {
         cfg.addAnnotatedClass(StufTAXTotalenRecord.class);
     }
 
+    private static int deleteRecords(Session sess) { 
+        Transaction tx = sess.beginTransaction();
+        SessionFactory sf = sess.getSessionFactory();
+
+        Map classes = sf.getAllClassMetadata();
+
+        int totalen = 0;
+        for (Object name : classes.keySet()) {
+            SessionFactoryImpl sfImpl = (SessionFactoryImpl) sf;
+            String tableName = ((AbstractEntityPersister) sfImpl.getEntityPersister((String) name)).getTableName();
+              
+            try {
+                totalen += sess.createSQLQuery("delete from " + tableName).executeUpdate();
+            } catch (HibernateException hbex) {
+                System.out.println("Fout tijdens verwijderen uit tabel: " + tableName);                
+            }            
+        }
+
+        tx.commit();
+        
+        return totalen;
+    }
+
     public static void main(String[] args)
             throws IOException, StufTAXParseException {
+        
+        long start = System.currentTimeMillis();
 
         /* TODO: See if decimals are used */
-
         Options options = buildOptions();
         CommandLine cl = null;
         try {
@@ -201,8 +245,6 @@ public final class App {
             System.exit(1);
         }
 
-        long start = System.currentTimeMillis();
-
         int error = 0;
         int success = 0;
 
@@ -211,8 +253,17 @@ public final class App {
 
         pw.println("Verbinden naar database...");
         Session sess = getSession(cl);
+        
+        if (cl.hasOption("action") && cl.getOptionValue("action").equals("delete")
+                && sess != null) {            
+            int totalen = deleteRecords(sess);
+            
+            pw.println(totalen + " records verwijderd.");
+        }
 
-        if (sess != null) {
+        if (cl.hasOption("action") && cl.getOptionValue("action").equals("load")
+                && sess != null) {
+            
             pw.println("Inladen Stuf TAX bestand...");
 
             StufTAXRecordCollector iter = null;
@@ -242,14 +293,18 @@ public final class App {
                 }
             }
 
-            tx.commit();
-
+            tx.commit();    
+            
+            pw.println(success + " records ingelezen met " + error + " fouten.");
+        }
+        
+        if (sess != null) {
             sess.close();
         }
-
+        
         long diff = (System.currentTimeMillis() - start) / 1000;
-
-        pw.println("Bestand ingeladen in " + diff + "s. " + success + " records ingelezen met " + error + " fouten.");
+        
+        pw.println("Duur " + diff + "s.");
         pw.close();
     }
 }
