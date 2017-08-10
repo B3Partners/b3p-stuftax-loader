@@ -7,7 +7,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath nl.b3p.b3p.stuftax.loader.App</exec.args>
+                <exec.args>-classpath %classpath nl.b3p.b3p.stuftax.loader.App -filename /home/meine/Documents/GGO/02-03-2017_Goeree-Overflakkee_stuftax_1l.sti -url jdbc:postgresql://localhost:5432/stuf -user stuf -password stuf -action load</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
@@ -18,9 +18,23 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath nl.b3p.b3p.stuftax.loader.App</exec.args>
+                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath nl.b3p.b3p.stuftax.loader.App -filename /home/meine/Documents/GGO/02-03-2017_Goeree-Overflakkee_stuftax_1l.sti -url jdbc:postgresql://localhost:5432/stuf -user stuf -password stuf -action load</exec.args>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath nl.b3p.b3p.stuftax.loader.App -filename /home/meine/Documents/GGO/02-03-2017_Goeree-Overflakkee_stuftax_1l.sti -url jdbc:postgresql://localhost:5432/stuf -user stuf -password stuf -action load</exec.args>
+                <exec.executable>java</exec.executable>
             </properties>
         </action>
     </actions>

@@ -2,18 +2,18 @@
 <project name="maven-antrun-" default="main"  >
 <target name="main">
   <taskdef classname="org.hibernate.tool.ant.HibernateToolTask" name="hibernatetool"/>
-  <mkdir dir="/home/boy/dev/projects/b3p-stuftax-loader/target/classes/scripts"/>
-  <hibernatetool destdir="/home/boy/dev/projects/b3p-stuftax-loader/target/classes/scripts">
+  <mkdir dir="/home/meine/dev/b3p-stuftax-loader/target/classes/scripts"/>
+  <hibernatetool destdir="/home/meine/dev/b3p-stuftax-loader/target/classes/scripts">
     <jpaconfiguration persistenceUnit="stuftax-oracle"/>
-    <hbm2ddl export="false" console="false" outputfilename="oracle-schema-export.sql" drop="true" format="true" create="true"/>
+    <hbm2ddl drop="true" console="false" outputfilename="oracle-schema-export.sql" format="true" create="true" export="false"/>
     <classpath>
       <path location="target"/>
     </classpath>
   </hibernatetool>
-  <mkdir dir="/home/boy/dev/projects/b3p-stuftax-loader/target/classes/scripts"/>
-  <hibernatetool destdir="/home/boy/dev/projects/b3p-stuftax-loader/target/classes/scripts">
+  <mkdir dir="/home/meine/dev/b3p-stuftax-loader/target/classes/scripts"/>
+  <hibernatetool destdir="/home/meine/dev/b3p-stuftax-loader/target/classes/scripts">
     <jpaconfiguration persistenceUnit="stuftax-postgresql"/>
-    <hbm2ddl export="false" console="false" outputfilename="postgresql-schema-export.sql" drop="true" format="true" create="true"/>
+    <hbm2ddl drop="true" console="false" outputfilename="postgresql-schema-export.sql" format="true" create="true" export="false"/>
     <classpath>
       <path location="target"/>
     </classpath>

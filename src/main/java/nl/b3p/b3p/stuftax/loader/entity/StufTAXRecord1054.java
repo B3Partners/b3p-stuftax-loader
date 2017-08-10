@@ -1,6 +1,5 @@
 package nl.b3p.b3p.stuftax.loader.entity;
 
-import java.io.LineNumberReader;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -143,8 +142,8 @@ public class StufTAXRecord1054 extends StufTAXRecord implements Serializable {
     }
 
     @Override
-    public void fillValues(LineNumberReader lineNumberReader, String line) {
-        this.lineNumber = lineNumberReader.getLineNumber();
+    public void fillValues(int linenumber, String line) {
+        this.lineNumber = linenumber;
         
         this.volgnummerMarktgegeven = getNumber(3, 8, line);
         this.kadasterGemeenteCode = getString(11, 5, line);

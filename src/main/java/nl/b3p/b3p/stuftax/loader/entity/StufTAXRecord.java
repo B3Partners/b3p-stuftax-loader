@@ -1,7 +1,7 @@
 package nl.b3p.b3p.stuftax.loader.entity;
 
-import java.io.LineNumberReader;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,14 +15,14 @@ import java.util.Date;
 public abstract class StufTAXRecord {
 
     private String line;
-    private LineNumberReader lineNumberReader;
+    private Reader reader;
     
     private String identifCode;
     
     // only used in stuur records
     private String deelbestandCode; 
 
-    public abstract void fillValues(LineNumberReader lineNumberReader, String line);
+    public abstract void fillValues(int linenumber, String line);
     
     public String getString(int startPos, int length, String line) {
         String s = null;
@@ -84,12 +84,12 @@ public abstract class StufTAXRecord {
         this.line = line;
     }
 
-    public LineNumberReader getLineNumberReader() {
-        return lineNumberReader;
+    public Reader getReader() {
+        return reader;
     }
 
-    public void setLineNumberReader(LineNumberReader lineNumberReader) {
-        this.lineNumberReader = lineNumberReader;
+    public void setReader(Reader reader) {
+        this.reader = reader;
     }
 
     public String getIdentifCode() {

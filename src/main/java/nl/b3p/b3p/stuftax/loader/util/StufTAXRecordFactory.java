@@ -1,7 +1,7 @@
 package nl.b3p.b3p.stuftax.loader.util;
 
 import java.io.IOException;
-import java.io.LineNumberReader;
+import java.io.Reader;
 import nl.b3p.b3p.stuftax.loader.entity.*;
 
 /**
@@ -13,10 +13,13 @@ final class StufTAXRecordFactory {
     private StufTAXRecordFactory() {
     }
 
-    public static StufTAXRecord getNextRecord(LineNumberReader lineNumberReader)
+    public static StufTAXRecord getNextRecord(Reader reader, int count)
             throws StufTAXParseException, IOException {
 
-        String line = lineNumberReader.readLine();
+        char[] buf = new char[256];
+        reader.read(buf, 0, 256);
+        String line = new String(buf);
+        
         int recordType = Integer.parseInt(line.substring(0, 2));
         
         StufTAXRecord record = null;
@@ -89,7 +92,7 @@ final class StufTAXRecordFactory {
         }
 
         if (record != null) {
-            record.fillValues(lineNumberReader, line);
+            record.fillValues(count, line);
         }
 
         return record;

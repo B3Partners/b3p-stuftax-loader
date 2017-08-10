@@ -1,6 +1,5 @@
 package nl.b3p.b3p.stuftax.loader.entity;
 
-import java.io.LineNumberReader;
 import java.io.Serializable;
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -140,8 +139,8 @@ public class StufTAXRecord1030 extends StufTAXRecord implements Serializable {
     }
 
     @Override
-    public void fillValues(LineNumberReader lineNumberReader, String line) {
-        this.lineNumber = lineNumberReader.getLineNumber();
+    public void fillValues(int linenumber, String line) {
+        this.lineNumber = linenumber;
         
         this.aNummerNatuurlijkpersoon = getLong(3, 10, line);
         this.sofinummer = getLong(13, 9, line);

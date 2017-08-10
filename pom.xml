@@ -12,6 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <oracle.jdbc.version>12.1.0.2.0</oracle.jdbc.version>
+        <oracle.jdbc.artifactId>ojdbc7</oracle.jdbc.artifactId>
     </properties>
     
     <build>
@@ -142,11 +144,19 @@
         <!-- 
         mvn install:install-file -Dfile="/path/to/your/local/ojdbc5_11.1.0.7.0.jar" -DgroupId=com.oracle -DartifactId=ojdbc5 -Dversion=11.1.0.7.0 -Dpackaging=jar
         -->
-        <dependency>
+        
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>${oracle.jdbc.artifactId}</artifactId>
+                <version>${oracle.jdbc.version}</version>
+                <!-- Bij JNDI db verbinding moeten Oracle jars in tomcat lib staan -->
+            </dependency>
+            
+        <!--dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc5</artifactId>
             <version>11.1.0.7.0</version>
-        </dependency>  
+        </dependency-->  
         
         <dependency>
             <groupId>org.slf4j</groupId>

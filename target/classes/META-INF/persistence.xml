@@ -27,13 +27,14 @@
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXTotalenRecord</class>        
        
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
         
             <property name="hibernate.jdbc.use_streams_for_binary" value="true"/>
             <property name="hibernate.jdbc.use_get_generated_keys" value="false"/>
-      
+            
             <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
             <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
         </properties>
@@ -66,6 +67,7 @@
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1080</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1091</class>
         <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXRecord1092</class>
+        <class>nl.b3p.b3p.stuftax.loader.entity.StufTAXTotalenRecord</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
