@@ -11,9 +11,14 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceVersion>${java.version}</project.build.sourceVersion>
+        <project.build.targetVersion>${java.version}</project.build.targetVersion>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <oracle.jdbc.version>12.1.0.2.0</oracle.jdbc.version>
-        <oracle.jdbc.artifactId>ojdbc7</oracle.jdbc.artifactId>
+        <oracle.jdbc.version>19.3.0.0</oracle.jdbc.version>
+        <oracle.jdbc.artifactId>ojdbc8_g</oracle.jdbc.artifactId>
     </properties>
     
     <build>
@@ -146,7 +151,7 @@
         -->
         
             <dependency>
-                <groupId>com.oracle</groupId>
+                <groupId>com.oracle.jdbc</groupId>
                 <artifactId>${oracle.jdbc.artifactId}</artifactId>
                 <version>${oracle.jdbc.version}</version>
                 <!-- Bij JNDI db verbinding moeten Oracle jars in tomcat lib staan -->
@@ -164,4 +169,14 @@
             <version>1.6.6</version>
         </dependency> 
     </dependencies>
+    <repositories>
+    <repository>
+        <id>B3Partners</id>
+        <name>Releases hosted by B3Partners</name>
+        <url>https://repo.b3p.nl/nexus/repository/public/</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
 </project>
